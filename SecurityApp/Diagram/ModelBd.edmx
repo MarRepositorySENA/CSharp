@@ -1,0 +1,221 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl" Namespace="ModelBd.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2005">
+        <EntityContainer Name="ModelBdTargetContainer" >
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="ModelBd" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+        <EntityContainer Name="ModelBdContainer" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Users" EntityType="ModelBd.User" />
+          <EntitySet Name="Roles" EntityType="ModelBd.Role" />
+          <EntitySet Name="user_roles" EntityType="ModelBd.user_role" />
+          <EntitySet Name="views" EntityType="ModelBd.View" />
+          <EntitySet Name="role_views" EntityType="ModelBd.role_view" />
+          <EntitySet Name="Modules" EntityType="ModelBd.Module" />
+          <EntitySet Name="Persons" EntityType="ModelBd.Person" />
+          <AssociationSet Name="UserPerson" Association="ModelBd.UserPerson">
+            <End Role="User" EntitySet="Users" />
+            <End Role="Person" EntitySet="Persons" />
+          </AssociationSet>
+          <AssociationSet Name="user_roleUser" Association="ModelBd.user_roleUser">
+            <End Role="user_role" EntitySet="user_roles" />
+            <End Role="User" EntitySet="Users" />
+          </AssociationSet>
+          <AssociationSet Name="ViewModule" Association="ModelBd.ViewModule">
+            <End Role="View" EntitySet="views" />
+            <End Role="Module" EntitySet="Modules" />
+          </AssociationSet>
+          <AssociationSet Name="user_roleRole" Association="ModelBd.user_roleRole">
+            <End Role="user_role" EntitySet="user_roles" />
+            <End Role="Role" EntitySet="Roles" />
+          </AssociationSet>
+          <AssociationSet Name="role_viewRole" Association="ModelBd.role_viewRole">
+            <End Role="role_view" EntitySet="role_views" />
+            <End Role="Role" EntitySet="Roles" />
+          </AssociationSet>
+          <AssociationSet Name="role_viewView" Association="ModelBd.role_viewView">
+            <End Role="role_view" EntitySet="role_views" />
+            <End Role="View" EntitySet="views" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserName" Type="String" Nullable="false" />
+          <Property Name="password" Type="String" Nullable="false" />
+          <Property Name="created_at" Type="DateTime" Nullable="false" />
+          <Property Name="created_by" Type="DateTime" Nullable="false" />
+          <Property Name="deleted_at" Type="DateTime" Nullable="false" />
+          <Property Name="deleted_by" Type="Boolean" Nullable="false" />
+          <Property Name="update_at" Type="DateTime" Nullable="false" />
+          <Property Name="update_by" Type="DateTime" Nullable="false" />
+          <Property Name="state" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="PersonId" Relationship="ModelBd.UserPerson" FromRole="User" ToRole="Person" />
+          <NavigationProperty Name="lstUser_role" Relationship="ModelBd.user_roleUser" FromRole="User" ToRole="user_role" />
+        </EntityType>
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" Nullable="false" />
+          <Property Name="description" Type="String" Nullable="false" />
+          <Property Name="created_at" Type="DateTime" Nullable="false" />
+          <Property Name="created_by" Type="DateTime" Nullable="false" />
+          <Property Name="deleted_at" Type="DateTime" Nullable="false" />
+          <Property Name="deleted_by" Type="DateTime" Nullable="false" />
+          <Property Name="update_at" Type="DateTime" Nullable="false" />
+          <Property Name="update_by" Type="DateTime" Nullable="false" />
+          <Property Name="state" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="lstUser_role" Relationship="ModelBd.user_roleRole" FromRole="Role" ToRole="user_role" />
+          <NavigationProperty Name="lstRole_view" Relationship="ModelBd.role_viewRole" FromRole="Role" ToRole="role_view" />
+        </EntityType>
+        <EntityType Name="user_role">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="created_at" Type="DateTime" Nullable="false" />
+          <Property Name="created_by" Type="DateTime" Nullable="false" />
+          <Property Name="deleted_at" Type="DateTime" Nullable="false" />
+          <Property Name="deleted_by" Type="DateTime" Nullable="false" />
+          <Property Name="updated_at" Type="DateTime" Nullable="false" />
+          <Property Name="update_by" Type="DateTime" Nullable="false" />
+          <Property Name="state" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="IdUser" Relationship="ModelBd.user_roleUser" FromRole="user_role" ToRole="User" />
+          <NavigationProperty Name="IdRole" Relationship="ModelBd.user_roleRole" FromRole="user_role" ToRole="Role" />
+        </EntityType>
+        <EntityType Name="View">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" Nullable="false" />
+          <Property Name="route" Type="String" Nullable="false" />
+          <Property Name="description" Type="String" Nullable="false" />
+          <Property Name="created_by" Type="String" Nullable="false" />
+          <Property Name="deleted_at" Type="String" Nullable="false" />
+          <Property Name="deleted_by" Type="String" Nullable="false" />
+          <Property Name="update_at" Type="String" Nullable="false" />
+          <Property Name="update_by" Type="String" Nullable="false" />
+          <Property Name="state" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="IdModule" Relationship="ModelBd.ViewModule" FromRole="View" ToRole="Module" />
+          <NavigationProperty Name="lstRole_view" Relationship="ModelBd.role_viewView" FromRole="View" ToRole="role_view" />
+        </EntityType>
+        <EntityType Name="role_view">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="created_at" Type="DateTime" Nullable="false" />
+          <Property Name="created_by" Type="DateTime" Nullable="false" />
+          <Property Name="deleted_at" Type="String" Nullable="false" />
+          <Property Name="deleted_by" Type="DateTime" Nullable="false" />
+          <Property Name="updated_at" Type="String" Nullable="false" />
+          <Property Name="updated_by" Type="DateTime" Nullable="false" />
+          <Property Name="state" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="IdRole" Relationship="ModelBd.role_viewRole" FromRole="role_view" ToRole="Role" />
+          <NavigationProperty Name="IdView" Relationship="ModelBd.role_viewView" FromRole="role_view" ToRole="View" />
+        </EntityType>
+        <EntityType Name="Module">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" Nullable="false" />
+          <Property Name="description" Type="String" Nullable="false" />
+          <Property Name="created_at" Type="String" Nullable="false" />
+          <Property Name="created_by" Type="String" Nullable="false" />
+          <Property Name="deleted_at" Type="String" Nullable="false" />
+          <Property Name="deleted_by" Type="String" Nullable="false" />
+          <Property Name="updated_at" Type="String" Nullable="false" />
+          <Property Name="update_by" Type="String" Nullable="false" />
+          <Property Name="state" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="lstView" Relationship="ModelBd.ViewModule" FromRole="Module" ToRole="View" />
+        </EntityType>
+        <EntityType Name="Person">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="first_name" Type="String" Nullable="false" />
+          <Property Name="last_name" Type="String" Nullable="false" />
+          <Property Name="email" Type="String" Nullable="false" />
+          <Property Name="gender" Type="String" Nullable="false" />
+          <Property Name="document" Type="String" Nullable="false" />
+          <Property Name="type_document" Type="String" Nullable="false" />
+          <Property Name="direction" Type="String" Nullable="false" />
+          <Property Name="birthday" Type="DateTime" Nullable="false" />
+          <Property Name="created_at" Type="DateTime" Nullable="false" />
+          <Property Name="created_by" Type="DateTime" Nullable="false" />
+          <Property Name="deleted_at" Type="DateTime" Nullable="false" />
+          <Property Name="deleted_by" Type="DateTime" Nullable="false" />
+          <Property Name="update_at" Type="DateTime" Nullable="false" />
+          <Property Name="update_by" Type="DateTime" Nullable="false" />
+          <Property Name="state" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="lstUser" Relationship="ModelBd.UserPerson" FromRole="Person" ToRole="User" />
+        </EntityType>
+        <Association Name="UserPerson">
+          <End Type="ModelBd.User" Role="User" Multiplicity="1" />
+          <End Type="ModelBd.Person" Role="Person" Multiplicity="1" />
+        </Association>
+        <Association Name="user_roleUser">
+          <End Type="ModelBd.user_role" Role="user_role" Multiplicity="*" />
+          <End Type="ModelBd.User" Role="User" Multiplicity="1" />
+        </Association>
+        <Association Name="ViewModule">
+          <End Type="ModelBd.View" Role="View" Multiplicity="*" />
+          <End Type="ModelBd.Module" Role="Module" Multiplicity="1" />
+        </Association>
+        <Association Name="user_roleRole">
+          <End Type="ModelBd.user_role" Role="user_role" Multiplicity="*" />
+          <End Type="ModelBd.Role" Role="Role" Multiplicity="1" />
+        </Association>
+        <Association Name="role_viewRole">
+          <End Type="ModelBd.role_view" Role="role_view" Multiplicity="*" />
+          <End Type="ModelBd.Role" Role="Role" Multiplicity="1" />
+        </Association>
+        <Association Name="role_viewView">
+          <End Type="ModelBd.role_view" Role="role_view" Multiplicity="*" />
+          <End Type="ModelBd.View" Role="View" Multiplicity="1" />
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs" Space="C-S">
+        <Alias Key="Model" Value="ModelBd" />
+        <Alias Key="Target" Value="ModelBd.Store" />
+        <EntityContainerMapping CdmEntityContainer="ModelBdContainer" StorageEntityContainer="ModelBdTargetContainer">
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <edmx:Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </edmx:Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

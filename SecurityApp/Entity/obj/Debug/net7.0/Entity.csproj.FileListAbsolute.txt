@@ -1,0 +1,5 @@
+C:\Users\SENA\source\repos\SecurityApp\Entity\obj\Debug\net7.0\Entity.csproj.AssemblyReference.cache
+C:\Users\SENA\source\repos\SecurityApp\Entity\obj\Debug\net7.0\Entity.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\SENA\source\repos\SecurityApp\Entity\obj\Debug\net7.0\Entity.AssemblyInfoInputs.cache
+C:\Users\SENA\source\repos\SecurityApp\Entity\obj\Debug\net7.0\Entity.AssemblyInfo.cs
+C:\Users\SENA\source\repos\SecurityApp\Entity\obj\Debug\net7.0\Entity.csproj.CoreCompileInputs.cache
