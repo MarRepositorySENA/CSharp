@@ -1,0 +1,12 @@
+C:\Users\SENA\source\repos\security-App\Bussiness\bin\Debug\net7.0\Bussiness.deps.json
+C:\Users\SENA\source\repos\security-App\Bussiness\bin\Debug\net7.0\Bussiness.dll
+C:\Users\SENA\source\repos\security-App\Bussiness\bin\Debug\net7.0\Bussiness.pdb
+C:\Users\SENA\source\repos\security-App\Bussiness\obj\Debug\net7.0\Bussiness.csproj.AssemblyReference.cache
+C:\Users\SENA\source\repos\security-App\Bussiness\obj\Debug\net7.0\Bussiness.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\SENA\source\repos\security-App\Bussiness\obj\Debug\net7.0\Bussiness.AssemblyInfoInputs.cache
+C:\Users\SENA\source\repos\security-App\Bussiness\obj\Debug\net7.0\Bussiness.AssemblyInfo.cs
+C:\Users\SENA\source\repos\security-App\Bussiness\obj\Debug\net7.0\Bussiness.csproj.CoreCompileInputs.cache
+C:\Users\SENA\source\repos\security-App\Bussiness\obj\Debug\net7.0\Bussiness.dll
+C:\Users\SENA\source\repos\security-App\Bussiness\obj\Debug\net7.0\refint\Bussiness.dll
+C:\Users\SENA\source\repos\security-App\Bussiness\obj\Debug\net7.0\Bussiness.pdb
+C:\Users\SENA\source\repos\security-App\Bussiness\obj\Debug\net7.0\ref\Bussiness.dll
