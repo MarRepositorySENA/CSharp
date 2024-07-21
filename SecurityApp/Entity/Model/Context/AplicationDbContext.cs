@@ -70,7 +70,15 @@ namespace Entity.Model.Context
             ChangeTracker.DetectChanges();
         }
 
+        
+        public DbSet<Modules> modules => Set<Modules>();
+        public DbSet<Person> persons => Set<Person>();
         public DbSet<Role> roles => Set<Role>();
+        public DbSet<Role_View> role_Views => Set<Role_View>();
+        public DbSet<User> users => Set<User>();
+        public DbSet<User_Role> user_Roles => Set<User_Role>();
+        public DbSet<View> views => Set<View>();
+
     }
 
     public readonly struct DapperEFCoreCommand : IDisposable
@@ -79,9 +87,22 @@ namespace Entity.Model.Context
         {
             var transaction = context.Database.CurrentTransaction?.GetDbTransaction();
             var commandType = type ?? CommandType.Text;
-            var commandTimeout = timeout ?? context.Database.GetCommandTimeout() ?? 30; 
+            var commandTimeout = timeout ?? context.Database.GetCommandTimeout() ?? 30;
 
-            Definition 
+            Definition = new CommandDefinition(
+                text,
+                parameters,
+                transaction,
+                commandTimeout,
+                commandType,
+                cancellationToken: ct
+                );
+        }
+
+            public CommandDefinition Definition { get; }
+
+            public void Dispose() { }
+
         }
     }
-}
+

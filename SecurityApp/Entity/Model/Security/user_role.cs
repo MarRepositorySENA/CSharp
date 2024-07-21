@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Entity.Model.Security
 {
-    public class user_role
+    public class User_Role
     {
         public int Id { get; set; }
         public Role role { get; set; }

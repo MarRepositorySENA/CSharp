@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Entity.Model.Security
 {
-    public class role_view
+    public class Role_View
     {
 
         public int Id { get; set; }
