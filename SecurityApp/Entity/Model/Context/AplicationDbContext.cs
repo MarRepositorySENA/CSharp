@@ -14,29 +14,17 @@ namespace Entity.Model.Context
     {
         protected readonly IConfiguration _configuration;
 
-        public AplicationDbContext(DbContextOptions<AplicationDbContext> options, IConfiguration configuration)
+        public AplicationDbContext(IConfiguration configuration)
         : base(options)
         {
             _configuration = configuration;
         }
 
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        protected override void OnConfiguring(DbContextOptionsBuilder options)
         {
-            base.OnModelCreating(modelBuilder);
-            modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
-            base.OnModelCreating(modelBuilder);
+            options.UseSqlServer(_configuration.GetConnectionString("DefaultSqlServer"));
 
         }
-
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            optionsBuilder.EnableSensitiveDataLogging();
-        }
-        protected override void ConfigureConventions(ModelConfigurationBuilder configurationBuilder)
-        {
-            configurationBuilder.Properties<decimal>().HavePrecision(18, 2);
-        }
-
         public override int SaveChanges()
         {
             EnsureAudit();
@@ -70,8 +58,8 @@ namespace Entity.Model.Context
             ChangeTracker.DetectChanges();
         }
 
-        
-        public DbSet<Modules> modules => Set<Modules>();
+        //public DbSet<Role> roles { set; get; }
+        public DbSet<Module> modules => Set<Module>();
         public DbSet<Person> persons => Set<Person>();
         public DbSet<Role> roles => Set<Role>();
         public DbSet<Role_View> role_Views => Set<Role_View>();

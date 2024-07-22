@@ -1,12 +1,109 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\Maryu\\source\\repos\\CSharp\\SecurityApp\\",
-  "Documents": [],
+  "WorkspaceRootPath": "C:\\Users\\Maryu\\Desktop\\CSharp\\SecurityApp\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Maryu\\Desktop\\CSharp\\SecurityApp\\Data\\Interfaces\\IModuleData.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Data\\Interfaces\\IModuleData.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Maryu\\Desktop\\CSharp\\SecurityApp\\Data\\Implementations\\ModuleData.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Data\\Implementations\\ModuleData.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Maryu\\Desktop\\CSharp\\SecurityApp\\Entity\\Model\\Context\\AplicationDbContext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Entity\\Model\\Context\\AplicationDbContext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Maryu\\Desktop\\CSharp\\SecurityApp\\Entity\\Model\\GenericConfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Entity\\Model\\GenericConfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
       "VerticalTabListWidth": 256,
-      "DocumentGroups": []
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "IModuleData.cs",
+              "DocumentMoniker": "C:\\Users\\Maryu\\Desktop\\CSharp\\SecurityApp\\Data\\Interfaces\\IModuleData.cs",
+              "RelativeDocumentMoniker": "Data\\Interfaces\\IModuleData.cs",
+              "ToolTip": "C:\\Users\\Maryu\\Desktop\\CSharp\\SecurityApp\\Data\\Interfaces\\IModuleData.cs",
+              "RelativeToolTip": "Data\\Interfaces\\IModuleData.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAA5AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-22T15:36:50.21Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "GenericConfig.cs",
+              "DocumentMoniker": "C:\\Users\\Maryu\\Desktop\\CSharp\\SecurityApp\\Entity\\Model\\GenericConfig.cs",
+              "RelativeDocumentMoniker": "Entity\\Model\\GenericConfig.cs",
+              "ToolTip": "C:\\Users\\Maryu\\Desktop\\CSharp\\SecurityApp\\Entity\\Model\\GenericConfig.cs",
+              "RelativeToolTip": "Entity\\Model\\GenericConfig.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-22T15:21:19.799Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "AplicationDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\Maryu\\Desktop\\CSharp\\SecurityApp\\Entity\\Model\\Context\\AplicationDbContext.cs",
+              "RelativeDocumentMoniker": "Entity\\Model\\Context\\AplicationDbContext.cs",
+              "ToolTip": "C:\\Users\\Maryu\\Desktop\\CSharp\\SecurityApp\\Entity\\Model\\Context\\AplicationDbContext.cs",
+              "RelativeToolTip": "Entity\\Model\\Context\\AplicationDbContext.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAYAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-21T22:09:57.89Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "FloatingWindowState": {
+        "Id": "fb954a63-7ee3-4758-856b-e059bdf4f30d",
+        "Display": 0,
+        "X": 648,
+        "Y": 74,
+        "Width": 1193,
+        "Height": 774,
+        "WindowState": 0
+      },
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ModuleData.cs",
+              "DocumentMoniker": "C:\\Users\\Maryu\\Desktop\\CSharp\\SecurityApp\\Data\\Implementations\\ModuleData.cs",
+              "RelativeDocumentMoniker": "Data\\Implementations\\ModuleData.cs",
+              "ToolTip": "C:\\Users\\Maryu\\Desktop\\CSharp\\SecurityApp\\Data\\Implementations\\ModuleData.cs",
+              "RelativeToolTip": "Data\\Implementations\\ModuleData.cs",
+              "ViewState": "AQIAADAAAAAAAAAAAAAAAEIAAAAIAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-22T15:25:36.153Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
     }
   ]
 }

@@ -7,17 +7,17 @@
       <Diagram DiagramId="b38bbe94d3054562825906a5a506b1fe" Name="Diagram1" ZoomLevel="92" >
         <EntityTypeShape EntityType="ModelBd.User" Width="1.5" PointX="11.75" PointY="2.75" />
         <EntityTypeShape EntityType="ModelBd.Role" Width="1.5" PointX="7.375" PointY="2.5" />
-        <EntityTypeShape EntityType="ModelBd.user_role" Width="1.5" PointX="9.625" PointY="2.75" />
+        <EntityTypeShape EntityType="ModelBd.User_Role" Width="1.5" PointX="9.625" PointY="2.75" />
         <EntityTypeShape EntityType="ModelBd.View" Width="1.5" PointX="2.75" PointY="2.125" />
-        <EntityTypeShape EntityType="ModelBd.role_view" Width="1.5" PointX="4.875" PointY="2.25" />
+        <EntityTypeShape EntityType="ModelBd.Role_View" Width="1.5" PointX="4.875" PointY="2.25" />
         <EntityTypeShape EntityType="ModelBd.Module" Width="1.5" PointX="0.625" PointY="2.375" />
         <EntityTypeShape EntityType="ModelBd.Person" Width="1.5" PointX="13.875" PointY="2.75" />
-        <AssociationConnector Association="ModelBd.UserPerson" />
-        <AssociationConnector Association="ModelBd.user_roleUser" />
         <AssociationConnector Association="ModelBd.ViewModule" />
-        <AssociationConnector Association="ModelBd.user_roleRole" />
-        <AssociationConnector Association="ModelBd.role_viewRole" />
-        <AssociationConnector Association="ModelBd.role_viewView" />
+        <AssociationConnector Association="ModelBd.Role_ViewView" />
+        <AssociationConnector Association="ModelBd.Role_ViewRole" />
+        <AssociationConnector Association="ModelBd.User_RoleRole" />
+        <AssociationConnector Association="ModelBd.User_RoleUser" />
+        <AssociationConnector Association="ModelBd.UserPerson" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

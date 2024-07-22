@@ -17,18 +17,16 @@ namespace Entity.Model.Security
         public Person person { get; set; }
         public int PersonId { get; set; }
 
-        public DateTime created_at { get; set; }
+        public bool state { get; set; }
 
-        public DateTime created_by { get; set; }
+        public DateTime createdAt { get; set; }
+        public DateTime createdBy { get; set; }
 
-        public DateTime updated_at { get; set; }
+        public DateTime updatedAt { get; set; }
+        public DateTime updatedBy { get; set; }
 
-        public DateTime updated_by { get; set; }
-
-        public DateTime deleted_at { get; set; }
-        public DateTime deleted_by { get; set; }
-
-        public Boolean state { get; set; }
+        public DateTime deletedAt { get; set; }
+        public DateTime deletedBy { get; set; }
 
 
     }

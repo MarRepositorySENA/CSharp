@@ -1,0 +1,14 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\Business",
+    "\\Data",
+    "\\Data\\Implementations",
+    "\\Data\\Interfaces",
+    "\\Entity",
+    "\\Entity\\Model",
+    "\\Entity\\Model\\Context"
+  ],
+  "SelectedNode": "\\Data\\Interfaces\\IModuleData.cs",
+  "PreviewInSolutionExplorer": false
+}
