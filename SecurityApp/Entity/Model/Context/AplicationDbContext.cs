@@ -15,7 +15,6 @@ namespace Entity.Model.Context
         protected readonly IConfiguration _configuration;
 
         public AplicationDbContext(IConfiguration configuration)
-        : base(options)
         {
             _configuration = configuration;
         }
@@ -59,13 +58,13 @@ namespace Entity.Model.Context
         }
 
         //public DbSet<Role> roles { set; get; }
-        public DbSet<Module> modules => Set<Module>();
-        public DbSet<Person> persons => Set<Person>();
-        public DbSet<Role> roles => Set<Role>();
-        public DbSet<Role_View> role_Views => Set<Role_View>();
-        public DbSet<User> users => Set<User>();
-        public DbSet<User_Role> user_Roles => Set<User_Role>();
-        public DbSet<View> views => Set<View>();
+        public DbSet<Modules> modules { set; get; }
+        public DbSet<Persons> persons { set; get; }
+        public DbSet<Roles> roles { set; get; }
+        public DbSet<Roles_Views> roles_views { set; get; }
+        public DbSet<Users> users { set; get; }
+        public DbSet<Users_Roles> users_roles { set; get; }
+        public DbSet<Views> views { set; get; }
 
     }
 
@@ -89,7 +88,9 @@ namespace Entity.Model.Context
 
             public CommandDefinition Definition { get; }
 
-            public void Dispose() { }
+            public void Dispose() 
+            {
+            }   
 
         }
     }

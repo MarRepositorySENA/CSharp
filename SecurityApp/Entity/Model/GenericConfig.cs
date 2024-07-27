@@ -11,12 +11,12 @@ namespace Entity.Model
 {
     internal class GenericConfig
     {
-        public void ConfigureUser(EntityTypeBuilder<User> builder)
+        public void ConfigureUser(EntityTypeBuilder<Users> builder)
         {
-            builder.HasIndex(i => i.UserName).IsUnique();
+            builder.HasIndex(i => i.username).IsUnique();
             builder.HasIndex(i => i.passsword).IsUnique();
         }
-        public void ConfigurePerson(EntityTypeBuilder<Person> builder)
+        public void ConfigurePerson(EntityTypeBuilder<Persons> builder)
         {
             builder.HasIndex(i => i.document).IsUnique();
             builder.HasIndex(i => i.email).IsUnique();
@@ -25,24 +25,32 @@ namespace Entity.Model
             
         }
 
-        public void ConfigureRole(EntityTypeBuilder<Role> builder)
+        public void ConfigureRole(EntityTypeBuilder<Roles> builder)
         {
             builder.HasIndex(i => i.code).IsUnique();
             builder.HasIndex(i => i.name).IsUnique();
          
             
         }
-        public void ConfigureView(EntityTypeBuilder<View> builder)
+        public void ConfigureView(EntityTypeBuilder<Views> builder)
         {
             builder.HasIndex(i => i.code).IsUnique();
             builder.HasIndex(i => i.name).IsUnique();
             builder.HasIndex(i => i.route).IsUnique();
         }
-        public void ConfigureModule(EntityTypeBuilder<Module> builder)
+        public void ConfigureModules(EntityTypeBuilder<Modules> builder)
         {
             builder.HasIndex(i => i.code).IsUnique();
             builder.HasIndex(i => i.name).IsUnique();
         }
-        
+
+        public void ConfigureUserRoles(EntityTypeBuilder<Users_Roles> builder)
+        {
+            builder.HasIndex(i => i.code).IsUnique();
+        }
+        public void ConfigureRolesViews(EntityTypeBuilder<Roles_Views> builder)
+        {
+            builder.HasIndex(i => i.code).IsUnique();
+        }
     }
 }

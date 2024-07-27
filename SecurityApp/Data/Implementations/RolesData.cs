@@ -1,4 +1,9 @@
 ﻿using Data.Interfaces;
+using Entity.Model.Context;
+using Entity.Model.Dto;
+using Entity.Model.Security;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,8 +12,9 @@ using System.Threading.Tasks;
 
 namespace Data.Implementations
 {
-    internal class RolesData : IRolesData
+    public class RolesData : IRolesData
     {
+
         private readonly AplicationDbContext context;
         protected readonly IConfiguration configuration;
 
@@ -25,18 +31,18 @@ namespace Data.Implementations
             {
                 throw new Exception("Registro no encontrado");
             }
-            entity.DeleteAt = DateTime.Parse(DateTime.Today.ToString());
-            context.Roles.Update(entity);
-            await context.saveChangesAsync();
+            entity.deletedAt = DateTime.Parse(DateTime.Today.ToString());
+            context.roles.Update(entity);
+            await context.SaveChangesAsync();
         }
 
         public async Task<IEnumerable<DataSelectDto>> GetAllSelect()
         {
             var sql = @"SELECT 
                         Id,
-                        CONCAT(Codigo, ' - ', Nombre) AS TextoMostrar 
+                        CONCAT(code, ' - ', name) AS TextoMostrar 
                     FROM 
-                        Roles
+                        Parametro.Roles
                     WHERE DeletedAt IS NULL AND Estado = 1
                     ORDER BY Id ASC";
             return await this.context.QueryAsync<DataSelectDto>(sql);
@@ -44,28 +50,15 @@ namespace Data.Implementations
 
         public async Task<Roles> GetById(int id)
         {
-            var sql = @"SELECT * FROM Roles WHERE Id = @Id ORDER BY Id ASC";
+            var sql = @"SELECT * FROM parametro.Roles WHERE Id = @Id ORDER BY Id ASC";
             return await this.context.QueryFirstOrDefaultAsync<Roles>(sql, new { Id = id });
-
         }
 
-        public async Task<PagedListDto<RolesDto>> getDatatable(QueryFilterDto filter)
-        {
-            int pageNumber = (filter.PageNumber == 0) ? Int32.Parse(configuration["Pagination:DefaultPageNumber"]) : filter.PageNumber;
-            int pageSize = (filter.PageSize == 0) ? Int32.Parse(configuration["Pagination:DefaultPageSize"]) : filter.PageSize;
 
-            ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-            IEnumerable<RolesDto> items = await context.QueryAsync<RolesDto>(sql, new { Filter = filter.Filter });
-
-            var pagedItems = PagedListDto<RolesDto>.Create(items, pageNumber, pageSize);
-
-            return pagedItems;
-        }
 
         public async Task<Roles> Save(Roles entity)
         {
-            context.Roles.Add(entity);
+            context.roles.Add(entity);
             await context.SaveChangesAsync();
             return entity;
         }
@@ -78,11 +71,7 @@ namespace Data.Implementations
 
         public async Task<Roles> GetByCode(string code)
         {
-            return await this.context.Roles.AsNoTracking().Where(item => item.Codigo == code).FirstOrDefaultAsync();
+            return await this.context.roles.AsNoTracking().Where(item => item.code == code).FirstOrDefaultAsync();
         }
-
-
-
-
     }
 }

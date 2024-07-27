@@ -1,4 +1,8 @@
-﻿using Data.Interfaces;
+﻿using Entity.Model.Context;
+using Entity.Model.Dto;
+using Entity.Model.Security;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace Data.Implementations
 {
-    internal class ViewsData : IViewsData
+    public class ViewsData
     {
         private readonly AplicationDbContext context;
         protected readonly IConfiguration configuration;
@@ -25,18 +29,18 @@ namespace Data.Implementations
             {
                 throw new Exception("Registro no encontrado");
             }
-            entity.DeleteAt = DateTime.Parse(DateTime.Today.ToString());
-            context.Views.Update(entity);
-            await context.saveChangesAsync();
+            entity.deletedAt = DateTime.Parse(DateTime.Today.ToString());
+            context.views.Update(entity);
+            await context.SaveChangesAsync();
         }
 
         public async Task<IEnumerable<DataSelectDto>> GetAllSelect()
         {
             var sql = @"SELECT 
                         Id,
-                        CONCAT(Codigo, ' - ', Nombre) AS TextoMostrar 
+                        CONCAT(code, ' - ', name) AS TextoMostrar 
                     FROM 
-                        Views
+                        Parametro.Views
                     WHERE DeletedAt IS NULL AND Estado = 1
                     ORDER BY Id ASC";
             return await this.context.QueryAsync<DataSelectDto>(sql);
@@ -44,28 +48,15 @@ namespace Data.Implementations
 
         public async Task<Views> GetById(int id)
         {
-            var sql = @"SELECT * FROM Views WHERE Id = @Id ORDER BY Id ASC";
+            var sql = @"SELECT * FROM parametro.Views WHERE Id = @Id ORDER BY Id ASC";
             return await this.context.QueryFirstOrDefaultAsync<Views>(sql, new { Id = id });
-
         }
 
-        public async Task<PagedListDto<ViewsDto>> getDatatable(QueryFilterDto filter)
-        {
-            int pageNumber = (filter.PageNumber == 0) ? Int32.Parse(configuration["Pagination:DefaultPageNumber"]) : filter.PageNumber;
-            int pageSize = (filter.PageSize == 0) ? Int32.Parse(configuration["Pagination:DefaultPageSize"]) : filter.PageSize;
 
-            ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-            IEnumerable<ViewsDto> items = await context.QueryAsync<ViewsDto>(sql, new { Filter = filter.Filter });
-
-            var pagedItems = PagedListDto<ViewsDto>.Create(items, pageNumber, pageSize);
-
-            return pagedItems;
-        }
 
         public async Task<Views> Save(Views entity)
         {
-            context.Views.Add(entity);
+            context.views.Add(entity);
             await context.SaveChangesAsync();
             return entity;
         }
@@ -78,11 +69,7 @@ namespace Data.Implementations
 
         public async Task<Views> GetByCode(string code)
         {
-            return await this.context.Views.AsNoTracking().Where(item => item.Codigo == code).FirstOrDefaultAsync();
+            return await this.context.views.AsNoTracking().Where(item => item.code == code).FirstOrDefaultAsync();
         }
-
-
-
-
     }
 }

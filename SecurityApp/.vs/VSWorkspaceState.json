@@ -9,6 +9,6 @@
     "\\Entity\\Model",
     "\\Entity\\Model\\Context"
   ],
-  "SelectedNode": "\\Data\\Interfaces\\IModuleData.cs",
+  "SelectedNode": "\\Entity\\Model\\Context\\AplicationDbContext.cs",
   "PreviewInSolutionExplorer": false
 }
