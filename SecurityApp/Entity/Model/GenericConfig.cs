@@ -14,7 +14,7 @@ namespace Entity.Model
         public void ConfigureUser(EntityTypeBuilder<Users> builder)
         {
             builder.HasIndex(i => i.username).IsUnique();
-            builder.HasIndex(i => i.passsword).IsUnique();
+            builder.HasIndex(i => i.password).IsUnique();
         }
         public void ConfigurePerson(EntityTypeBuilder<Persons> builder)
         {

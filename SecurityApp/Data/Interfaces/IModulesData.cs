@@ -16,13 +16,14 @@ namespace Data.Interfaces
         
          Task Delete(int id);
          Task<IEnumerable<DataSelectDto>> GetAllSelect();
-         Task<Modules> GetById(int id);
+        Task<IEnumerable<ModulesDto>> SelectAll();
+        Task<Modules> GetById(int id);
          Task<Modules> Save(Modules entity);
         Task Update(Modules entity);
         Task<Modules> GetByCode(string code);
 
-        //Metodo que estaba haciendo para seleccionar
-        Task<IEnumerable<Modules>> SelectAll();
+        
+        
     }
     
 }

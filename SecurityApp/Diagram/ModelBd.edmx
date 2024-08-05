@@ -154,21 +154,23 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="first_name" Type="String" Nullable="false" />
-          <Property Name="last_name" Type="String" Nullable="false" />
-          <Property Name="email" Type="String" Nullable="false" />
-          <Property Name="gender" Type="String" Nullable="false" />
-          <Property Name="document" Type="String" Nullable="false" />
+          <Property Name="second_name" Type="String" Nullable="false" />
+          <Property Name="first_surname" Type="String" Nullable="false" />
+          <Property Name="second_surname" Type="String" Nullable="false" />
           <Property Name="type_document" Type="String" Nullable="false" />
+          <Property Name="document" Type="String" Nullable="false" />
           <Property Name="address" Type="String" Nullable="false" />
           <Property Name="birth_date" Type="DateTime" Nullable="false" />
+          <Property Name="gender" Type="DateTime" Nullable="false" />
+          <Property Name="email" Type="DateTime" Nullable="false" />
+          <Property Name="state" Type="DateTime" Nullable="false" />
           <Property Name="created_at" Type="DateTime" Nullable="false" />
           <Property Name="created_by" Type="DateTime" Nullable="false" />
-          <Property Name="deleted_at" Type="DateTime" Nullable="false" />
-          <Property Name="deleted_by" Type="DateTime" Nullable="false" />
-          <Property Name="update_at" Type="DateTime" Nullable="false" />
-          <Property Name="update_by" Type="DateTime" Nullable="false" />
-          <Property Name="state" Type="Boolean" Nullable="false" />
+          <Property Name="updated_at" Type="DateTime" Nullable="false" />
           <NavigationProperty Name="User" Relationship="ModelBd.UserPerson" FromRole="Person" ToRole="User" />
+          <Property Name="updated_by" Type="String" Nullable="false" />
+          <Property Name="deleted_at" Type="String" Nullable="false" />
+          <Property Name="deleted_by" Type="String" Nullable="false" />
         </EntityType>
         <Association Name="ViewModule">
           <End Type="ModelBd.Views" Role="View" Multiplicity="*" />

@@ -73,7 +73,7 @@ namespace Data.Implementations
             return await this.context.modules.AsNoTracking().Where(item => item.code == code).FirstOrDefaultAsync();
         }
 
-        public async Task<IEnumerable<Modules>> SelectAll()
+        public async Task<IEnumerable<ModulesDto>> SelectAll()
         {
             var sql = @"SELECT 
                 Id,
@@ -81,18 +81,12 @@ namespace Data.Implementations
                 description,
                 code,
                 state,
-                createdAt,
-                createdBy,
-                updatedAt,
-                updatedBy,
-                deletedAt,
-                deletedBy
             FROM 
-                Modules
-            WHERE DeletedAt IS NULL
+                Security.Modules
+            WHERE deletedAt IS NULL
             ORDER BY Id ASC";
 
-            return await this.context.QueryAsync<Modules>(sql);
+            return await this.context.QueryAsync<ModulesDto>(sql);
         }
 
     }

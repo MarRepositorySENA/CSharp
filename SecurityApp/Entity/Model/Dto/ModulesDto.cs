@@ -13,11 +13,6 @@ namespace Entity.Model.Dto
         public string description { get; set; }
         public string code { get; set; }
         public bool state { get; set; }
-        public DateTime createdAt { get; set; }
-        public DateTime createdBy { get; set; }
-        public DateTime updatedAt { get; set; }
-        public DateTime updatedBy { get; set; }
-        public DateTime deletedAt { get; set; }
-        public DateTime deletedBy { get; set; }
+        
     }
 }

@@ -1,4 +1,5 @@
-﻿using Entity.Model.Context;
+﻿using Data.Interfaces;
+using Entity.Model.Context;
 using Entity.Model.Dto;
 using Entity.Model.Security;
 using Microsoft.EntityFrameworkCore;
@@ -11,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace Data.Implementations
 {
-    public class Users_RolesData
+    public class Users_RolesData : IUsers_RolesData
     {
 
         private readonly AplicationDbContext context;
@@ -39,17 +40,17 @@ namespace Data.Implementations
         {
             var sql = @"SELECT 
                         Id,
-                        CONCAT(code, ' - ', name) AS TextoMostrar 
+                        code AS TextoMostrar 
                     FROM 
-                        Parametro.Users_Roles
-                    WHERE DeletedAt IS NULL AND Estado = 1
+                        Security.Users_Roles
+                    WHERE deletedAt IS NULL AND Estado = 1
                     ORDER BY Id ASC";
             return await this.context.QueryAsync<DataSelectDto>(sql);
         }
 
         public async Task<Users_Roles> GetById(int id)
         {
-            var sql = @"SELECT * FROM parametro.Users_Roles WHERE Id = @Id ORDER BY Id ASC";
+            var sql = @"SELECT * FROM Security.Users_Roles WHERE Id = @Id ORDER BY Id ASC";
             return await this.context.QueryFirstOrDefaultAsync<Users_Roles>(sql, new { Id = id });
         }
 
@@ -71,6 +72,22 @@ namespace Data.Implementations
         public async Task<Users_Roles> GetByCode(string code)
         {
             return await this.context.users_roles.AsNoTracking().Where(item => item.code == code).FirstOrDefaultAsync();
+        }
+
+        public async Task<IEnumerable<Users_RolesDto>> SelectAll()
+        {
+            var sql = @"SELECT 
+                Id,
+                roleId,
+                userId,
+                state,
+                code,
+            FROM 
+                Security.Users_Roles
+            WHERE deletedAt IS NULL
+            ORDER BY Id ASC";
+
+            return await this.context.QueryAsync<Users_RolesDto>(sql);
         }
     }
 }

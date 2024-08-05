@@ -12,6 +12,7 @@ namespace Data.Interfaces
     {
         Task Delete(int id);
         Task<IEnumerable<DataSelectDto>> GetAllSelect();
+        Task<IEnumerable<UsersDto>> SelectAll();
         Task<Users> GetById(int id);
         Task<Users> Save(Users entity);
         Task Update(Users entity);

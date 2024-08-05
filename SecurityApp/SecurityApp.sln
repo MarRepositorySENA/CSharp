@@ -9,9 +9,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Diagram", "Diagram\Diagram.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Utilities", "Utilities\Utilities.csproj", "{80BBC331-BAED-400E-857B-3D8C1ACDBA53}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Data", "Data\Data.csproj", "{497546B8-567C-4AD5-9C9C-1E6FF213D3E0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Data", "Data\Data.csproj", "{497546B8-567C-4AD5-9C9C-1E6FF213D3E0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Business", "Business\Business.csproj", "{96434C52-8FE0-4CFA-AFB8-3103C69D22FE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Business", "Business\Business.csproj", "{96434C52-8FE0-4CFA-AFB8-3103C69D22FE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Controller", "Controller\Controller.csproj", "{F599B2B6-CFB8-42FD-8DEE-E0FC0C54A47F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{96434C52-8FE0-4CFA-AFB8-3103C69D22FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{96434C52-8FE0-4CFA-AFB8-3103C69D22FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{96434C52-8FE0-4CFA-AFB8-3103C69D22FE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F599B2B6-CFB8-42FD-8DEE-E0FC0C54A47F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F599B2B6-CFB8-42FD-8DEE-E0FC0C54A47F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F599B2B6-CFB8-42FD-8DEE-E0FC0C54A47F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F599B2B6-CFB8-42FD-8DEE-E0FC0C54A47F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

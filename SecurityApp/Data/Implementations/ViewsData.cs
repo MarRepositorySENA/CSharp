@@ -1,4 +1,5 @@
-﻿using Entity.Model.Context;
+﻿using Data.Interfaces;
+using Entity.Model.Context;
 using Entity.Model.Dto;
 using Entity.Model.Security;
 using Microsoft.EntityFrameworkCore;
@@ -11,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace Data.Implementations
 {
-    public class ViewsData
+    public class ViewsData : IViewsData
     {
         private readonly AplicationDbContext context;
         protected readonly IConfiguration configuration;
@@ -40,15 +41,15 @@ namespace Data.Implementations
                         Id,
                         CONCAT(code, ' - ', name) AS TextoMostrar 
                     FROM 
-                        Parametro.Views
-                    WHERE DeletedAt IS NULL AND Estado = 1
+                        Security.Views
+                    WHERE deletedAt IS NULL AND Estado = 1
                     ORDER BY Id ASC";
             return await this.context.QueryAsync<DataSelectDto>(sql);
         }
 
         public async Task<Views> GetById(int id)
         {
-            var sql = @"SELECT * FROM parametro.Views WHERE Id = @Id ORDER BY Id ASC";
+            var sql = @"SELECT * FROM Security.Views WHERE Id = @Id ORDER BY Id ASC";
             return await this.context.QueryFirstOrDefaultAsync<Views>(sql, new { Id = id });
         }
 
@@ -71,5 +72,37 @@ namespace Data.Implementations
         {
             return await this.context.views.AsNoTracking().Where(item => item.code == code).FirstOrDefaultAsync();
         }
+
+        public async Task<IEnumerable<ViewsDto>> SelectAll()
+        {
+            var sql = @"SELECT 
+                                v.Id,
+                                v.name,
+                                v.description,
+                                v.route,
+                                v.moduleId,
+                                v.state,
+                                v.code,
+                                 
+                        FROM 
+                                Security.Views v
+                        INNER JOIN 
+                                Security.Modules m ON v.moduleId = m.Id
+                        WHERE 
+                                v.deletedAt IS NULL
+                        ORDER BY 
+                                 v.Id ASC";
+
+            try
+            {
+                return await this.context.QueryAsync<ViewsDto>(sql);
+            }
+            catch (Exception ex)
+            {
+                // Manejar excepciones según sea necesario
+                throw new ApplicationException("Error al ejecutar la consulta", ex);
+            }
+        }
     }
 }
+

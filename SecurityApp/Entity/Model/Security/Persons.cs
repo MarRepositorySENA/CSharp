@@ -13,7 +13,11 @@ namespace Entity.Model.Security
 
         public string firstName { get; set; }
 
-        public string lastName { get; set; }
+        public string secondName { get; set; }
+
+        public String  firstSurname{ get; set; }
+
+        public String secondSurname{ get; set; }
         
         public string email { get; set; }
 

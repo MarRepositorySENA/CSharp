@@ -12,7 +12,7 @@ namespace Entity.Model.Security
 
         public string username { get; set; }
 
-        public string passsword { get; set;  }
+        public string password { get; set;  }
 
         public Persons person { get; set; }
         public int personId { get; set; }

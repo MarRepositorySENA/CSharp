@@ -42,7 +42,7 @@ namespace Data.Implementations
                         Id,
                         CONCAT(code, ' - ', name) AS TextoMostrar 
                     FROM 
-                        Parametro.Roles
+                        Security.Roles
                     WHERE DeletedAt IS NULL AND Estado = 1
                     ORDER BY Id ASC";
             return await this.context.QueryAsync<DataSelectDto>(sql);
@@ -50,7 +50,7 @@ namespace Data.Implementations
 
         public async Task<Roles> GetById(int id)
         {
-            var sql = @"SELECT * FROM parametro.Roles WHERE Id = @Id ORDER BY Id ASC";
+            var sql = @"SELECT * FROM Security.Roles WHERE Id = @Id ORDER BY Id ASC";
             return await this.context.QueryFirstOrDefaultAsync<Roles>(sql, new { Id = id });
         }
 
@@ -72,6 +72,21 @@ namespace Data.Implementations
         public async Task<Roles> GetByCode(string code)
         {
             return await this.context.roles.AsNoTracking().Where(item => item.code == code).FirstOrDefaultAsync();
+        }
+        public async Task<IEnumerable<RolesDto>> SelectAll()
+        {
+            var sql = @"SELECT 
+                Id,
+                name,
+                description,
+                code,
+                state,
+            FROM 
+                Security.Roles
+            WHERE deletedAt IS NULL
+            ORDER BY Id ASC";
+
+            return await this.context.QueryAsync<RolesDto>(sql);
         }
     }
 }

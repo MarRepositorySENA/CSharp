@@ -1,34 +1,32 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\Maryu\\Desktop\\CSharp\\SecurityApp\\",
+  "WorkspaceRootPath": "C:\\Users\\jimmy\\OneDrive\\Escritorio\\CSharp\\SecurityApp\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{497546B8-567C-4AD5-9C9C-1E6FF213D3E0}|Data\\Data.csproj|c:\\users\\maryu\\desktop\\csharp\\securityapp\\data\\implementations\\modulesdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{497546B8-567C-4AD5-9C9C-1E6FF213D3E0}|Data\\Data.csproj|solutionrelative:data\\implementations\\modulesdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{497546B8-567C-4AD5-9C9C-1E6FF213D3E0}|Data\\Data.csproj|c:\\users\\maryu\\desktop\\csharp\\securityapp\\data\\data.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
-      "RelativeMoniker": "D:0:0:{497546B8-567C-4AD5-9C9C-1E6FF213D3E0}|Data\\Data.csproj|solutionrelative:data\\data.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{96434C52-8FE0-4CFA-AFB8-3103C69D22FE}|Business\\Business.csproj|c:\\users\\maryu\\desktop\\csharp\\securityapp\\business\\implementations\\modulesbusiness.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{96434C52-8FE0-4CFA-AFB8-3103C69D22FE}|Business\\Business.csproj|solutionrelative:business\\implementations\\modulesbusiness.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9444293D-2AF4-4145-AA16-CC40637CCEF5}|Entity\\Entity.csproj|c:\\users\\maryu\\desktop\\csharp\\securityapp\\entity\\model\\context\\aplicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{9444293D-2AF4-4145-AA16-CC40637CCEF5}|Entity\\Entity.csproj|c:\\users\\jimmy\\onedrive\\escritorio\\csharp\\securityapp\\entity\\model\\context\\aplicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{9444293D-2AF4-4145-AA16-CC40637CCEF5}|Entity\\Entity.csproj|solutionrelative:entity\\model\\context\\aplicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9444293D-2AF4-4145-AA16-CC40637CCEF5}|Entity\\Entity.csproj|c:\\users\\maryu\\desktop\\csharp\\securityapp\\entity\\model\\dto\\modulesdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9444293D-2AF4-4145-AA16-CC40637CCEF5}|Entity\\Entity.csproj|solutionrelative:entity\\model\\dto\\modulesdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{96434C52-8FE0-4CFA-AFB8-3103C69D22FE}|Business\\Business.csproj|c:\\users\\jimmy\\onedrive\\escritorio\\csharp\\securityapp\\business\\security\\implementations\\personsbusiness.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{96434C52-8FE0-4CFA-AFB8-3103C69D22FE}|Business\\Business.csproj|solutionrelative:business\\security\\implementations\\personsbusiness.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9444293D-2AF4-4145-AA16-CC40637CCEF5}|Entity\\Entity.csproj|c:\\users\\maryu\\desktop\\csharp\\securityapp\\entity\\model\\genericconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9444293D-2AF4-4145-AA16-CC40637CCEF5}|Entity\\Entity.csproj|solutionrelative:entity\\model\\genericconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{9444293D-2AF4-4145-AA16-CC40637CCEF5}|Entity\\Entity.csproj|c:\\users\\jimmy\\onedrive\\escritorio\\csharp\\securityapp\\entity\\model\\security\\persons.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9444293D-2AF4-4145-AA16-CC40637CCEF5}|Entity\\Entity.csproj|solutionrelative:entity\\model\\security\\persons.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9444293D-2AF4-4145-AA16-CC40637CCEF5}|Entity\\Entity.csproj|c:\\users\\maryu\\desktop\\csharp\\securityapp\\entity\\model\\security\\modules.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9444293D-2AF4-4145-AA16-CC40637CCEF5}|Entity\\Entity.csproj|solutionrelative:entity\\model\\security\\modules.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{9444293D-2AF4-4145-AA16-CC40637CCEF5}|Entity\\Entity.csproj|c:\\users\\jimmy\\onedrive\\escritorio\\csharp\\securityapp\\entity\\model\\dto\\personsdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9444293D-2AF4-4145-AA16-CC40637CCEF5}|Entity\\Entity.csproj|solutionrelative:entity\\model\\dto\\personsdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9444293D-2AF4-4145-AA16-CC40637CCEF5}|Entity\\Entity.csproj|c:\\users\\jimmy\\onedrive\\escritorio\\csharp\\securityapp\\entity\\model\\dto\\pagedlistdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9444293D-2AF4-4145-AA16-CC40637CCEF5}|Entity\\Entity.csproj|solutionrelative:entity\\model\\dto\\pagedlistdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\jimmy\\OneDrive\\Escritorio\\security\\Entity\\DTO\\PagedListDto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\jimmy\\OneDrive\\Escritorio\\security\\Entity\\DTO\\ModuleDto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -43,92 +41,113 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "ModulesData.cs",
-              "DocumentMoniker": "C:\\Users\\Maryu\\Desktop\\CSharp\\SecurityApp\\Data\\Implementations\\ModulesData.cs",
-              "RelativeDocumentMoniker": "Data\\Implementations\\ModulesData.cs",
-              "ToolTip": "C:\\Users\\Maryu\\Desktop\\CSharp\\SecurityApp\\Data\\Implementations\\ModulesData.cs",
-              "RelativeToolTip": "Data\\Implementations\\ModulesData.cs",
-              "ViewState": "AQIAAE0AAAAAAAAAAAAAAGUAAAAAAAAA",
+              "Title": "AplicationDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\jimmy\\OneDrive\\Escritorio\\CSharp\\SecurityApp\\Entity\\Model\\Context\\AplicationDbContext.cs",
+              "RelativeDocumentMoniker": "Entity\\Model\\Context\\AplicationDbContext.cs",
+              "ToolTip": "C:\\Users\\jimmy\\OneDrive\\Escritorio\\CSharp\\SecurityApp\\Entity\\Model\\Context\\AplicationDbContext.cs",
+              "RelativeToolTip": "Entity\\Model\\Context\\AplicationDbContext.cs",
+              "ViewState": "AQIAAB0AAAAAAAAAAAAowCYAAABZAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-27T10:54:00.586Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Data",
-              "DocumentMoniker": "C:\\Users\\Maryu\\Desktop\\CSharp\\SecurityApp\\Data\\Data.csproj",
-              "RelativeDocumentMoniker": "Data\\Data.csproj",
-              "ToolTip": "C:\\Users\\Maryu\\Desktop\\CSharp\\SecurityApp\\Data\\Data.csproj",
-              "RelativeToolTip": "Data\\Data.csproj",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2024-07-27T10:53:56.666Z",
+              "WhenOpened": "2024-08-04T22:15:16.816Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "ModulesBusiness.cs",
-              "DocumentMoniker": "C:\\Users\\Maryu\\Desktop\\CSharp\\SecurityApp\\Business\\Implementations\\ModulesBusiness.cs",
-              "RelativeDocumentMoniker": "Business\\Implementations\\ModulesBusiness.cs",
-              "ToolTip": "C:\\Users\\Maryu\\Desktop\\CSharp\\SecurityApp\\Business\\Implementations\\ModulesBusiness.cs",
-              "RelativeToolTip": "Business\\Implementations\\ModulesBusiness.cs",
-              "ViewState": "AQIAAEYAAAAAAAAAAAAAAF0AAAAAAAAA",
+              "Title": "Persons.cs",
+              "DocumentMoniker": "C:\\Users\\jimmy\\OneDrive\\Escritorio\\CSharp\\SecurityApp\\Entity\\Model\\Security\\Persons.cs",
+              "RelativeDocumentMoniker": "Entity\\Model\\Security\\Persons.cs",
+              "ToolTip": "C:\\Users\\jimmy\\OneDrive\\Escritorio\\CSharp\\SecurityApp\\Entity\\Model\\Security\\Persons.cs",
+              "RelativeToolTip": "Entity\\Model\\Security\\Persons.cs",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAAABMAAAAWAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-27T10:52:25.436Z",
+              "WhenOpened": "2024-08-04T22:11:52.765Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "PersonsBusiness.cs",
+              "DocumentMoniker": "C:\\Users\\jimmy\\OneDrive\\Escritorio\\CSharp\\SecurityApp\\Business\\Security\\Implementations\\PersonsBusiness.cs",
+              "RelativeDocumentMoniker": "Business\\Security\\Implementations\\PersonsBusiness.cs",
+              "ToolTip": "C:\\Users\\jimmy\\OneDrive\\Escritorio\\CSharp\\SecurityApp\\Business\\Security\\Implementations\\PersonsBusiness.cs",
+              "RelativeToolTip": "Business\\Security\\Implementations\\PersonsBusiness.cs",
+              "ViewState": "AQIAAB8AAAAAAAAAAIA9wFYAAAA3AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-04T22:09:14.97Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "AplicationDbContext.cs",
-              "DocumentMoniker": "C:\\Users\\Maryu\\Desktop\\CSharp\\SecurityApp\\Entity\\Model\\Context\\AplicationDbContext.cs",
-              "RelativeDocumentMoniker": "Entity\\Model\\Context\\AplicationDbContext.cs",
-              "ToolTip": "C:\\Users\\Maryu\\Desktop\\CSharp\\SecurityApp\\Entity\\Model\\Context\\AplicationDbContext.cs",
-              "RelativeToolTip": "Entity\\Model\\Context\\AplicationDbContext.cs",
-              "ViewState": "AQIAAEEAAAAAAAAAAAA5wGEAAAAAAAAA",
+              "Title": "PersonsDto.cs",
+              "DocumentMoniker": "C:\\Users\\jimmy\\OneDrive\\Escritorio\\CSharp\\SecurityApp\\Entity\\Model\\Dto\\PersonsDto.cs",
+              "RelativeDocumentMoniker": "Entity\\Model\\Dto\\PersonsDto.cs",
+              "ToolTip": "C:\\Users\\jimmy\\OneDrive\\Escritorio\\CSharp\\SecurityApp\\Entity\\Model\\Dto\\PersonsDto.cs",
+              "RelativeToolTip": "Entity\\Model\\Dto\\PersonsDto.cs",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAAABIAAAAgAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-27T10:49:38.331Z",
+              "WhenOpened": "2024-08-04T22:09:37.865Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "ModulesDto.cs",
-              "DocumentMoniker": "C:\\Users\\Maryu\\Desktop\\CSharp\\SecurityApp\\Entity\\Model\\Dto\\ModulesDto.cs",
-              "RelativeDocumentMoniker": "Entity\\Model\\Dto\\ModulesDto.cs",
-              "ToolTip": "C:\\Users\\Maryu\\Desktop\\CSharp\\SecurityApp\\Entity\\Model\\Dto\\ModulesDto.cs",
-              "RelativeToolTip": "Entity\\Model\\Dto\\ModulesDto.cs",
-              "ViewState": "AQIAAAgAAAAAAAAAAAAuwBcAAAAAAAAA",
+              "Title": "PagedListDto.cs",
+              "DocumentMoniker": "C:\\Users\\jimmy\\OneDrive\\Escritorio\\CSharp\\SecurityApp\\Entity\\Model\\Dto\\PagedListDto.cs",
+              "RelativeDocumentMoniker": "Entity\\Model\\Dto\\PagedListDto.cs",
+              "ToolTip": "C:\\Users\\jimmy\\OneDrive\\Escritorio\\CSharp\\SecurityApp\\Entity\\Model\\Dto\\PagedListDto.cs",
+              "RelativeToolTip": "Entity\\Model\\Dto\\PagedListDto.cs",
+              "ViewState": "AQIAABQAAAAAAAAAAAAUwB8AAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-27T10:46:32.408Z",
+              "WhenOpened": "2024-08-04T21:56:22.619Z",
               "EditorCaption": ""
-            },
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "FloatingWindowState": {
+        "Id": "7e0f6581-a32a-47a8-adc3-e02c9491e590",
+        "Display": 0,
+        "X": 141,
+        "Y": 6,
+        "Width": 342,
+        "Height": 756,
+        "WindowState": 0
+      },
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
             {
               "$type": "Document",
               "DocumentIndex": 5,
-              "Title": "GenericConfig.cs",
-              "DocumentMoniker": "C:\\Users\\Maryu\\Desktop\\CSharp\\SecurityApp\\Entity\\Model\\GenericConfig.cs",
-              "RelativeDocumentMoniker": "Entity\\Model\\GenericConfig.cs",
-              "ToolTip": "C:\\Users\\Maryu\\Desktop\\CSharp\\SecurityApp\\Entity\\Model\\GenericConfig.cs",
-              "RelativeToolTip": "Entity\\Model\\GenericConfig.cs",
-              "ViewState": "AQIAACIAAAAAAAAAAAAuwDgAAAAAAAAA",
+              "Title": "PagedListDto.cs",
+              "DocumentMoniker": "C:\\Users\\jimmy\\OneDrive\\Escritorio\\security\\Entity\\DTO\\PagedListDto.cs",
+              "RelativeDocumentMoniker": "..\\..\\security\\Entity\\DTO\\PagedListDto.cs",
+              "ToolTip": "C:\\Users\\jimmy\\OneDrive\\Escritorio\\security\\Entity\\DTO\\PagedListDto.cs",
+              "RelativeToolTip": "..\\..\\security\\Entity\\DTO\\PagedListDto.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-27T10:44:13.162Z",
+              "WhenOpened": "2024-08-04T21:55:49.403Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 6,
-              "Title": "Modules.cs",
-              "DocumentMoniker": "C:\\Users\\Maryu\\Desktop\\CSharp\\SecurityApp\\Entity\\Model\\Security\\Modules.cs",
-              "RelativeDocumentMoniker": "Entity\\Model\\Security\\Modules.cs",
-              "ToolTip": "C:\\Users\\Maryu\\Desktop\\CSharp\\SecurityApp\\Entity\\Model\\Security\\Modules.cs",
-              "RelativeToolTip": "Entity\\Model\\Security\\Modules.cs",
-              "ViewState": "AQIAAAwAAAAAAAAAAAAzwB0AAAAAAAAA",
+              "Title": "ModuleDto.cs",
+              "DocumentMoniker": "C:\\Users\\jimmy\\OneDrive\\Escritorio\\security\\Entity\\DTO\\ModuleDto.cs",
+              "RelativeDocumentMoniker": "..\\..\\security\\Entity\\DTO\\ModuleDto.cs",
+              "ToolTip": "C:\\Users\\jimmy\\OneDrive\\Escritorio\\security\\Entity\\DTO\\ModuleDto.cs",
+              "RelativeToolTip": "..\\..\\security\\Entity\\DTO\\ModuleDto.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAjAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-27T10:43:17.083Z",
+              "WhenOpened": "2024-08-04T21:25:39.898Z",
               "EditorCaption": ""
             }
           ]

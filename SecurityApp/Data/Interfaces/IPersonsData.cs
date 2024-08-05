@@ -11,7 +11,8 @@ namespace Data.Interfaces
     public interface IPersonsData
     {
         Task Delete(int id);
-        Task<IEnumerable<DataSelectDto>> GetAllSelect();
+        Task<IEnumerable<DataSelectPersonsDto>> GetAllSelect();
+        Task<IEnumerable<PersonsDto>> SelectAll();
         Task<Persons> GetById(int id);
         Task<Persons> Save(Persons entity);
         Task Update(Persons entity);

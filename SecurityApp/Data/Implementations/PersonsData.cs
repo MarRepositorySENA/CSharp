@@ -36,16 +36,16 @@ namespace Data.Implementations
                 await context.SaveChangesAsync();
             }
 
-            public async Task<IEnumerable<DataSelectDto>> GetAllSelect()
+            public async Task<IEnumerable<DataSelectPersonsDto>> GetAllSelect()
             {
                 var sql = @"SELECT 
                         Id,
-                        CONCAT(code, ' - ', name) AS TextoMostrar 
+                        CONCAT( firstName, ' - ', secondSurname) AS nombres 
                     FROM 
-                        Parametro.Persons
-                    WHERE DeletedAt IS NULL AND Estado = 1
+                        Security.Persons
+                    WHERE deletedAt IS NULL AND Estado = 1
                     ORDER BY Id ASC";
-                return await this.context.QueryAsync<DataSelectDto>(sql);
+                return await this.context.QueryAsync<DataSelectPersonsDto>(sql);
             }
 
             public async Task<Persons> GetById(int id)
@@ -74,6 +74,29 @@ namespace Data.Implementations
                 return await this.context.persons.AsNoTracking().Where(item => item.code == code).FirstOrDefaultAsync();
             }
 
+        public async Task<IEnumerable<PersonsDto>> SelectAll()
+        {
+            var sql = @"SELECT 
+                Id,
+                firstName,
+                secondName,
+                firstSurname
+                secondSurname,
+                email,
+                gender,
+                document,
+                typeDocument,
+                address,
+                phone,
+                birthDate,
+            FROM 
+                Security.Persons
+            WHERE deletedAt IS NULL
+            ORDER BY Id ASC";
+
+            return await this.context.QueryAsync<PersonsDto>(sql);
         }
+
+    }
     }
 

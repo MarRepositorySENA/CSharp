@@ -9643,23 +9643,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Maryu\\.nuget\\packages\\": {},
+    "C:\\Users\\jimmy\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Maryu\\Desktop\\CSharp\\SecurityApp\\Data\\Data.csproj",
+      "projectUniqueName": "C:\\Users\\jimmy\\OneDrive\\Escritorio\\CSharp\\SecurityApp\\Data\\Data.csproj",
       "projectName": "Data",
-      "projectPath": "C:\\Users\\Maryu\\Desktop\\CSharp\\SecurityApp\\Data\\Data.csproj",
-      "packagesPath": "C:\\Users\\Maryu\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Maryu\\Desktop\\CSharp\\SecurityApp\\Data\\obj\\",
+      "projectPath": "C:\\Users\\jimmy\\OneDrive\\Escritorio\\CSharp\\SecurityApp\\Data\\Data.csproj",
+      "packagesPath": "C:\\Users\\jimmy\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\jimmy\\OneDrive\\Escritorio\\CSharp\\SecurityApp\\Data\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\Maryu\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\jimmy\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -9675,8 +9675,8 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "projectReferences": {
-            "C:\\Users\\Maryu\\Desktop\\CSharp\\SecurityApp\\Entity\\Entity.csproj": {
-              "projectPath": "C:\\Users\\Maryu\\Desktop\\CSharp\\SecurityApp\\Entity\\Entity.csproj"
+            "C:\\Users\\jimmy\\OneDrive\\Escritorio\\CSharp\\SecurityApp\\Entity\\Entity.csproj": {
+              "projectPath": "C:\\Users\\jimmy\\OneDrive\\Escritorio\\CSharp\\SecurityApp\\Entity\\Entity.csproj"
             }
           }
         }
