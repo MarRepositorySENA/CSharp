@@ -1,11 +1,11 @@
-﻿    using Data.Interfaces;
+﻿using Data.Security.Interfaces;
 using Entity.Context;
 using Entity.Model.Dto;
 using Entity.Model.Security;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 
-namespace Data.Implementations
+namespace Data.Security.Implementations
 {
     public class ModulesData : IModulesData
     {
@@ -39,16 +39,16 @@ namespace Data.Implementations
                         Module
                     WHERE DeletedAt IS NULL AND state = 1
                     ORDER BY Id ASC";
-            return await this.context.QueryAsync<DataSelectDto>(sql);
+            return await context.QueryAsync<DataSelectDto>(sql);
         }
 
         public async Task<Modules> GetById(int id)
         {
             var sql = @"SELECT * FROM Module WHERE Id = @Id ORDER BY Id ASC";
-            return await this.context.QueryFirstOrDefaultAsync<Modules>(sql, new { Id = id });
+            return await context.QueryFirstOrDefaultAsync<Modules>(sql, new { Id = id });
         }
 
-        
+
 
         public async Task<Modules> Save(Modules entity)
         {
@@ -59,13 +59,13 @@ namespace Data.Implementations
 
         public async Task Update(Modules entity)
         {
-            context.Entry(entity).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+            context.Entry(entity).State = EntityState.Modified;
             await context.SaveChangesAsync();
         }
 
         public async Task<Modules> GetByCode(string code)
         {
-            return await this.context.Module.AsNoTracking().Where(item => item.code == code).FirstOrDefaultAsync();
+            return await context.Module.AsNoTracking().Where(item => item.code == code).FirstOrDefaultAsync();
         }
 
         public async Task<IEnumerable<Modules>> SelectAll()
@@ -76,14 +76,14 @@ namespace Data.Implementations
 
             try
             {
-                return await this.context.QueryAsync<Modules>(sql);
+                return await context.QueryAsync<Modules>(sql);
             }
             catch (Exception ex)
             {
                 // Manejar excepciones según sea necesario
                 throw new ApplicationException("Error al ejecutar la consulta XD", ex);
             }
-            
+
         }
 
     }

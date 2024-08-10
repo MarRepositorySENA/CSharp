@@ -1,4 +1,5 @@
-﻿using Entity.Model.Dto;
+﻿using Entity.Dto.Security;
+using Entity.Model.Dto;
 using Entity.Model.Security;
 using Microsoft.AspNetCore.Mvc;
 

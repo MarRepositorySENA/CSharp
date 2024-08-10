@@ -1,4 +1,4 @@
-﻿using Data.Interfaces;
+﻿using Data.Security.Interfaces;
 using Entity.Context;
 using Entity.Model.Dto;
 using Entity.Model.Security;
@@ -10,7 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Data.Implementations
+namespace Data.Security.Implementations
 {
     public class RolesViewsData : IRolesViewsData
     {
@@ -50,13 +50,13 @@ namespace Data.Implementations
                                 rV.state = 1
                         ORDER BY 
                                 rV.Id ASC; ";
-            return await this.context.QueryAsync<DataSelectDto>(sql);
+            return await context.QueryAsync<DataSelectDto>(sql);
         }
 
         public async Task<RoleView> GetById(int id)
         {
             var sql = @"SELECT * FROM RolesViews WHERE Id = @Id ORDER BY Id ASC";
-            return await this.context.QueryFirstOrDefaultAsync<RoleView>(sql, new { Id = id });
+            return await context.QueryFirstOrDefaultAsync<RoleView>(sql, new { Id = id });
         }
 
 
@@ -70,7 +70,7 @@ namespace Data.Implementations
 
         public async Task Update(RoleView entity)
         {
-            context.Entry(entity).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+            context.Entry(entity).State = EntityState.Modified;
             await context.SaveChangesAsync();
         }
 
@@ -81,10 +81,10 @@ namespace Data.Implementations
             var sql = @"SELECT * FROM RolesViews WHERE deletedAt IS NULL AND state = 1
                     ORDER BY Id ASC; ";
 
-            
+
             try
             {
-                return await this.context.QueryAsync<RoleView>(sql);
+                return await context.QueryAsync<RoleView>(sql);
             }
             catch (Exception ex)
             {

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Entity.Model.Dto
+namespace Entity.Dto.Security
 {
     public class RolesDto
     {

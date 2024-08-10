@@ -1,4 +1,4 @@
-﻿using Data.Interfaces;
+﻿using Data.Security.Interfaces;
 using Entity.Context;
 using Entity.Model.Dto;
 using Entity.Model.Security;
@@ -10,7 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Data.Implementations
+namespace Data.Security.Implementations
 {
     public class UsersRolesData : IUsersRolesData
     {
@@ -51,13 +51,13 @@ namespace Data.Implementations
                                 uR.state = 1
                         ORDER BY 
                                 uR.Id ASC";
-            return await this.context.QueryAsync<DataSelectDto>(sql);
+            return await context.QueryAsync<DataSelectDto>(sql);
         }
 
         public async Task<UserRole> GetById(int id)
         {
             var sql = @"SELECT * FROM UsersRoles WHERE Id = @Id ORDER BY Id ASC";
-            return await this.context.QueryFirstOrDefaultAsync<UserRole>(sql, new { Id = id });
+            return await context.QueryFirstOrDefaultAsync<UserRole>(sql, new { Id = id });
         }
 
 
@@ -71,11 +71,11 @@ namespace Data.Implementations
 
         public async Task Update(UserRole entity)
         {
-            context.Entry(entity).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+            context.Entry(entity).State = EntityState.Modified;
             await context.SaveChangesAsync();
         }
 
-        
+
 
         public async Task<IEnumerable<UserRole>> SelectAll()
         {
@@ -84,7 +84,7 @@ namespace Data.Implementations
 
             try
             {
-                return await this.context.QueryAsync<UserRole>(sql);
+                return await context.QueryAsync<UserRole>(sql);
             }
             catch (Exception ex)
             {
@@ -93,7 +93,7 @@ namespace Data.Implementations
             }
 
 
-            
+
         }
     }
 }

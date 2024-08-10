@@ -1,5 +1,6 @@
 ﻿using Business.Security.Interfaces;
 using Controller.Controllers.Interfaces;
+using Entity.Dto.Security;
 using Entity.Model.Dto;
 using Entity.Model.Security;
 using Microsoft.AspNetCore.Mvc;

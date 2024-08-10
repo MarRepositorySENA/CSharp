@@ -1,4 +1,4 @@
-﻿using Data.Interfaces;
+﻿using Data.Security.Interfaces;
 using Entity.Context;
 using Entity.Model.Dto;
 using Entity.Model.Security;
@@ -10,7 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Data.Implementations
+namespace Data.Security.Implementations
 {
     public class RolesData : IRolesData
     {
@@ -45,13 +45,13 @@ namespace Data.Implementations
                         Roles
                     WHERE deletedAt IS NULL AND state = 1
                     ORDER BY Id ASC";
-            return await this.context.QueryAsync<DataSelectDto>(sql);
+            return await context.QueryAsync<DataSelectDto>(sql);
         }
 
         public async Task<Role> GetById(int id)
         {
             var sql = @"SELECT * FROM Roles WHERE Id = @Id ORDER BY Id ASC";
-            return await this.context.QueryFirstOrDefaultAsync<Role>(sql, new { Id = id });
+            return await context.QueryFirstOrDefaultAsync<Role>(sql, new { Id = id });
         }
 
 
@@ -65,13 +65,13 @@ namespace Data.Implementations
 
         public async Task Update(Role entity)
         {
-            context.Entry(entity).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+            context.Entry(entity).State = EntityState.Modified;
             await context.SaveChangesAsync();
         }
 
         public async Task<Role> GetByCode(string code)
         {
-            return await this.context.Roles.AsNoTracking().Where(item => item.code == code).FirstOrDefaultAsync();
+            return await context.Roles.AsNoTracking().Where(item => item.code == code).FirstOrDefaultAsync();
         }
         public async Task<IEnumerable<Role>> SelectAll()
         {
@@ -80,14 +80,14 @@ namespace Data.Implementations
 
             try
             {
-                return await this.context.QueryAsync<Role>(sql);
+                return await context.QueryAsync<Role>(sql);
             }
             catch (Exception ex)
             {
                 // Manejar excepciones según sea necesario
                 throw new ApplicationException("Error al ejecutar la consulta XD", ex);
             }
-            
+
         }
     }
 }

@@ -5,15 +5,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Entity.Model.Dto
+namespace Entity.Dto.Security
 {
-    public class UsersRolesDto
+    public class RolesViewsDto
     {
 
         public int Id { get; set; }
-
         public int roleId { get; set; }
-        public int userId { get; set; }
+        public int viewId { get; set; }
+
         public bool state { get; set; }
+
     }
 }

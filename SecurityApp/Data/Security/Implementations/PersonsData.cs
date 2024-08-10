@@ -1,4 +1,4 @@
-﻿using Data.Interfaces;
+﻿using Data.Security.Interfaces;
 using Entity.Context;
 using Entity.Model.Dto;
 using Entity.Model.Security;
@@ -10,14 +10,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Data.Implementations
+namespace Data.Security.Implementations
 {
-    public class UsersData : IUsersData
+
+    public class PersonsData : IPersonsData
     {
         private readonly AplicationDbContext context;
         protected readonly IConfiguration configuration;
 
-        public UsersData(AplicationDbContext context, IConfiguration configuration)
+        public PersonsData(AplicationDbContext context, IConfiguration configuration)
         {
             this.context = context;
             this.configuration = configuration;
@@ -31,7 +32,7 @@ namespace Data.Implementations
                 throw new Exception("Registro no encontrado");
             }
             entity.deletedAt = DateTime.Parse(DateTime.Today.ToString());
-            context.Users.Update(entity);
+            context.Persons.Update(entity);
             await context.SaveChangesAsync();
         }
 
@@ -39,49 +40,48 @@ namespace Data.Implementations
         {
             var sql = @"SELECT 
                         Id,
-                        username AS TextoMostrar 
+                        CONCAT( firstName, ' - ', secondSurname) AS TextoMostrar
                     FROM 
-                        Users
+                        Persons
                     WHERE deletedAt IS NULL AND state = 1
                     ORDER BY Id ASC";
-            return await this.context.QueryAsync<DataSelectDto>(sql);
+            return await context.QueryAsync<DataSelectDto>(sql);
         }
 
-        public async Task<User> GetById(int id)
+        public async Task<Person> GetById(int id)
         {
-            var sql = @"SELECT * FROM Users WHERE Id = @Id ORDER BY Id ASC";
-            return await this.context.QueryFirstOrDefaultAsync<User>(sql, new { Id = id });
+            var sql = @"SELECT * FROM Persons WHERE Id = @Id ORDER BY Id ASC";
+            return await context.QueryFirstOrDefaultAsync<Person>(sql, new { Id = id });
+
         }
 
 
 
-        public async Task<User> Save(User entity)
+        public async Task<Person> Save(Person entity)
         {
-            context.Users.Add(entity);
+            context.Persons.Add(entity);
             await context.SaveChangesAsync();
             return entity;
         }
 
-        public async Task Update(User entity)
+        public async Task Update(Person entity)
         {
-            context.Entry(entity).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+            context.Entry(entity).State = EntityState.Modified;
             await context.SaveChangesAsync();
         }
 
-        public async Task<User> GetByUsername(string username)
+        public async Task<Person> GetByDocument(string document)
         {
-            return await this.context.Users.AsNoTracking().Where(item => item.username == username).FirstOrDefaultAsync();
+            return await context.Persons.AsNoTracking().Where(item => item.document == document).FirstOrDefaultAsync();
         }
 
-        public async Task<IEnumerable<User>> SelectAll()
+        public async Task<IEnumerable<Person>> SelectAll()
         {
-            var sql = @"SELECT * FROM Users WHERE deletedAt IS NULL AND state = 1
-                    ORDER BY Id ASC; ";
-
-
+            var sql = @"SELECT * FROM Persons WHERE DeletedAt IS NULL AND state = 1
+                       ORDER BY Id ASC; ";
             try
             {
-                return await this.context.QueryAsync<User>(sql);
+                return await context.QueryAsync<Person>(sql);
             }
             catch (Exception ex)
             {
@@ -89,7 +89,8 @@ namespace Data.Implementations
                 throw new ApplicationException("Error al ejecutar la consulta XD", ex);
             }
 
-            
         }
+
     }
 }
+

@@ -6,15 +6,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Data.Interfaces
+namespace Data.Security.Interfaces
 {
-    public interface IRolesViewsData
+    public interface IUsersRolesData
     {
         Task Delete(int id);
         Task<IEnumerable<DataSelectDto>> GetAllSelect();
-        Task<IEnumerable<RoleView>> SelectAll();
-        Task<RoleView> GetById(int id);
-        Task<RoleView> Save(RoleView entity);
-        Task Update(RoleView entity);
+        Task<IEnumerable<UserRole>> SelectAll();
+        Task<UserRole> GetById(int id);
+        Task<UserRole> Save(UserRole entity);
+        Task Update(UserRole entity);
+
     }
 }

@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Entity.Model.Dto
+namespace Entity.Dto.Security
 {
     public class ViewsDto
     {
@@ -18,6 +18,6 @@ namespace Entity.Model.Dto
         public string code { get; set; }
         public bool state { get; set; }
 
-        
+
     }
 }
