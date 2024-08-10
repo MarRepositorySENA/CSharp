@@ -1,4 +1,4 @@
-﻿using Entity.Model.Context;
+﻿using Entity.Context;
 using Entity.Model.Dto;
 using Entity.Model.Security;
 using Microsoft.Extensions.Configuration;
@@ -16,7 +16,7 @@ namespace Data.Interfaces
         
          Task Delete(int id);
          Task<IEnumerable<DataSelectDto>> GetAllSelect();
-        Task<IEnumerable<ModulesDto>> SelectAll();
+        Task<IEnumerable<Modules>> SelectAll();
         Task<Modules> GetById(int id);
          Task<Modules> Save(Modules entity);
         Task Update(Modules entity);

@@ -29,14 +29,14 @@ namespace Business.Security.Implementations
             return await data.GetAllSelect();
         }
 
-        public async Task<IEnumerable<ViewsDto>> SelectAll()
+        public async Task<IEnumerable<View>> SelectAll()
         {
             return await this.data.SelectAll();
         }
 
         public async Task<ViewsDto> GetById(int id)
         {
-            Views view = await this.data.GetById(id);
+            View view = await this.data.GetById(id);
             ViewsDto ViewsDto = new ViewsDto();
             
             ViewsDto.Id = view.Id;
@@ -53,9 +53,9 @@ namespace Business.Security.Implementations
             return ViewsDto;
         }
 
-        public async Task<Views> Save(ViewsDto entity)
+        public async Task<View> Save(ViewsDto entity)
         {
-            Views view = new Views();
+            View view = new View();
             view = mapearDatos(view, entity);
 
             return await data.Save(view);
@@ -63,7 +63,7 @@ namespace Business.Security.Implementations
 
         public async Task Update(int id, ViewsDto entity)
         {
-            Views view = await data.GetById(id);
+            View view = await data.GetById(id);
             if (view == null)
             {
                 throw new Exception("Registro no encontrado");
@@ -73,7 +73,7 @@ namespace Business.Security.Implementations
             await data.Update(view);
         }
 
-        private Views mapearDatos(Views view, ViewsDto entity)
+        private View mapearDatos(View view, ViewsDto entity)
         {
             
             view.Id = entity.Id;

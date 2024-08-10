@@ -11,10 +11,10 @@ namespace Business.Security.Interfaces
     public interface IPersonsBusiness
     {
         Task Delete(int id);
-        Task<IEnumerable<DataSelectPersonsDto>> GetAllSelect();
-        Task<IEnumerable<PersonsDto>> SelectAll();
+        Task<IEnumerable<DataSelectDto>> GetAllSelect();
+        Task<IEnumerable<Person>> SelectAll();
         Task<PersonsDto> GetById(int id);
-        Task<Persons> Save(PersonsDto entity);
+        Task<Person> Save(PersonsDto entity);
         Task Update(int id, PersonsDto entity);
 
         

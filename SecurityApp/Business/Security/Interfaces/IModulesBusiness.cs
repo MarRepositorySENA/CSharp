@@ -13,7 +13,7 @@ namespace Business.Security.Interfaces
 
         Task Delete(int id);
         Task<IEnumerable<DataSelectDto>> GetAllSelect();
-        Task<IEnumerable<ModulesDto>> SelectAll();
+        Task<IEnumerable<Modules>> SelectAll();
         Task<ModulesDto> GetById(int id);
         Task<Modules> Save(ModulesDto entity);
         Task Update(int id, ModulesDto entity);

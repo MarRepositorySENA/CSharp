@@ -12,9 +12,9 @@ namespace Business.Security.Interfaces
     {
         Task Delete(int id);
         Task<IEnumerable<DataSelectDto>> GetAllSelect();
-        Task<IEnumerable<RolesDto>> SelectAll();
+        Task<IEnumerable<Role>> SelectAll();
         Task<RolesDto> GetById(int id);
-        Task<Roles> Save(RolesDto entity);
+        Task<Role> Save(RolesDto entity);
         Task Update(int id, RolesDto entity);
 
         

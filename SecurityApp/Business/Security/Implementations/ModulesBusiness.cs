@@ -1,16 +1,8 @@
-﻿using Entity.Model.Dto;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Business.Security.Interfaces;
 using Data.Implementations;
-
-
-
-using Entity.Model.Security;
 using Data.Interfaces;
-using Business.Security.Interfaces;
+using Entity.Model.Dto;
+using Entity.Model.Security;
 
 namespace Business.Security.Implementations
 {
@@ -35,7 +27,7 @@ namespace Business.Security.Implementations
 
      
 
-        public async Task<IEnumerable<ModulesDto>> SelectAll()
+        public async Task<IEnumerable<Modules>> SelectAll()
         {
             return await this.data.SelectAll();
         }
@@ -61,6 +53,8 @@ namespace Business.Security.Implementations
         {
             Modules module = new Modules();
             module = mapearDatos(module, entity);
+
+
 
             return await data.Save(module);
         }

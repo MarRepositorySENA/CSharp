@@ -1,5 +1,5 @@
 ﻿using Data.Interfaces;
-using Entity.Model.Context;
+using Entity.Context;
 using Entity.Model.Dto;
 using Entity.Model.Security;
 using Microsoft.EntityFrameworkCore;
@@ -32,69 +32,63 @@ namespace Data.Implementations
                     throw new Exception("Registro no encontrado");
                 }
                 entity.deletedAt = DateTime.Parse(DateTime.Today.ToString());
-                context.persons.Update(entity);
+                context.Persons.Update(entity);
                 await context.SaveChangesAsync();
             }
 
-            public async Task<IEnumerable<DataSelectPersonsDto>> GetAllSelect()
+            public async Task<IEnumerable<DataSelectDto>> GetAllSelect()
             {
                 var sql = @"SELECT 
                         Id,
-                        CONCAT( firstName, ' - ', secondSurname) AS nombres 
+                        CONCAT( firstName, ' - ', secondSurname) AS TextoMostrar
                     FROM 
-                        Security.Persons
-                    WHERE deletedAt IS NULL AND Estado = 1
+                        Persons
+                    WHERE deletedAt IS NULL AND state = 1
                     ORDER BY Id ASC";
-                return await this.context.QueryAsync<DataSelectPersonsDto>(sql);
+                return await this.context.QueryAsync<DataSelectDto>(sql);
             }
 
-            public async Task<Persons> GetById(int id)
+            public async Task<Person> GetById(int id)
             {
-                var sql = @"SELECT * FROM parametro.Persons WHERE Id = @Id ORDER BY Id ASC";
-                return await this.context.QueryFirstOrDefaultAsync<Persons>(sql, new { Id = id });
+                var sql = @"SELECT * FROM Persons WHERE Id = @Id ORDER BY Id ASC";
+                return await this.context.QueryFirstOrDefaultAsync<Person>(sql, new { Id = id });
+
             }
 
 
 
-            public async Task<Persons> Save(Persons entity)
+            public async Task<Person> Save(Person entity)
             {
-                context.persons.Add(entity);
+                context.Persons.Add(entity);
                 await context.SaveChangesAsync();
                 return entity;
             }
 
-            public async Task Update(Persons entity)
+            public async Task Update(Person entity)
             {
                 context.Entry(entity).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
                 await context.SaveChangesAsync();
             }
 
-            public async Task<Persons> GetByCode(string code)
+            public async Task<Person> GetByDocument(string document)
             {
-                return await this.context.persons.AsNoTracking().Where(item => item.code == code).FirstOrDefaultAsync();
+                return await this.context.Persons.AsNoTracking().Where(item => item.document == document).FirstOrDefaultAsync();
             }
 
-        public async Task<IEnumerable<PersonsDto>> SelectAll()
+        public async Task<IEnumerable<Person>> SelectAll()
         {
-            var sql = @"SELECT 
-                Id,
-                firstName,
-                secondName,
-                firstSurname
-                secondSurname,
-                email,
-                gender,
-                document,
-                typeDocument,
-                address,
-                phone,
-                birthDate,
-            FROM 
-                Security.Persons
-            WHERE deletedAt IS NULL
-            ORDER BY Id ASC";
-
-            return await this.context.QueryAsync<PersonsDto>(sql);
+            var sql = @"SELECT * FROM Persons WHERE DeletedAt IS NULL AND state = 1
+                       ORDER BY Id ASC; ";
+            try
+            {
+                return await this.context.QueryAsync<Person>(sql);
+            }
+            catch (Exception ex)
+            {
+                // Manejar excepciones según sea necesario
+                throw new ApplicationException("Error al ejecutar la consulta XD", ex);
+            }
+            
         }
 
     }

@@ -1,14 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Entity.Model.Context;
-using Microsoft.Extensions.Configuration;
+﻿    using Data.Interfaces;
+using Entity.Context;
 using Entity.Model.Dto;
 using Entity.Model.Security;
 using Microsoft.EntityFrameworkCore;
-using Data.Interfaces;
+using Microsoft.Extensions.Configuration;
 
 namespace Data.Implementations
 {
@@ -31,7 +26,7 @@ namespace Data.Implementations
                 throw new Exception("Registro no encontrado");
             }
             entity.deletedAt = DateTime.Parse(DateTime.Today.ToString());
-            context.modules.Update(entity);
+            context.Module.Update(entity);
             await context.SaveChangesAsync();
         }
 
@@ -41,15 +36,15 @@ namespace Data.Implementations
                         Id,
                         CONCAT(code, ' - ', name) AS TextoMostrar 
                     FROM 
-                        Modules
-                    WHERE DeletedAt IS NULL AND Estado = 1
+                        Module
+                    WHERE DeletedAt IS NULL AND state = 1
                     ORDER BY Id ASC";
             return await this.context.QueryAsync<DataSelectDto>(sql);
         }
 
         public async Task<Modules> GetById(int id)
         {
-            var sql = @"SELECT * FROM Modules WHERE Id = @Id ORDER BY Id ASC";
+            var sql = @"SELECT * FROM Module WHERE Id = @Id ORDER BY Id ASC";
             return await this.context.QueryFirstOrDefaultAsync<Modules>(sql, new { Id = id });
         }
 
@@ -57,7 +52,7 @@ namespace Data.Implementations
 
         public async Task<Modules> Save(Modules entity)
         {
-            context.modules.Add(entity);
+            context.Module.Add(entity);
             await context.SaveChangesAsync();
             return entity;
         }
@@ -70,23 +65,25 @@ namespace Data.Implementations
 
         public async Task<Modules> GetByCode(string code)
         {
-            return await this.context.modules.AsNoTracking().Where(item => item.code == code).FirstOrDefaultAsync();
+            return await this.context.Module.AsNoTracking().Where(item => item.code == code).FirstOrDefaultAsync();
         }
 
-        public async Task<IEnumerable<ModulesDto>> SelectAll()
+        public async Task<IEnumerable<Modules>> SelectAll()
         {
-            var sql = @"SELECT 
-                Id,
-                name,
-                description,
-                code,
-                state,
-            FROM 
-                Security.Modules
-            WHERE deletedAt IS NULL
-            ORDER BY Id ASC";
+            var sql = @"SELECT * FROM Module  WHERE DeletedAt IS NULL AND state = 1
+                    ORDER BY Id ASC";
 
-            return await this.context.QueryAsync<ModulesDto>(sql);
+
+            try
+            {
+                return await this.context.QueryAsync<Modules>(sql);
+            }
+            catch (Exception ex)
+            {
+                // Manejar excepciones según sea necesario
+                throw new ApplicationException("Error al ejecutar la consulta XD", ex);
+            }
+            
         }
 
     }

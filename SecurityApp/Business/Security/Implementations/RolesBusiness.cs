@@ -30,13 +30,13 @@ namespace Business.Security.Implementations
             return await data.GetAllSelect();
         }
 
-        public async Task<IEnumerable<RolesDto>> SelectAll()
+        public async Task<IEnumerable<Role>> SelectAll()
         {
             return await this.data.SelectAll();
         }
         public async Task<RolesDto> GetById(int id)
         {
-            Roles role = await this.data.GetById(id);
+            Role role = await this.data.GetById(id);
             RolesDto roleDto = new RolesDto();
 
             {
@@ -51,9 +51,9 @@ namespace Business.Security.Implementations
             };
         }
 
-        public async Task<Roles> Save(RolesDto entity)
+        public async Task<Role> Save(RolesDto entity)
         {
-            Roles role = new Roles();
+            Role role = new Role();
             role = mapearDatos(role, entity);
 
             return await data.Save(role);
@@ -61,7 +61,7 @@ namespace Business.Security.Implementations
 
         public async Task Update(int id, RolesDto entity)
         {
-            Roles role = await this.data.GetById(id);
+            Role role = await this.data.GetById(id);
             if (role == null)
             {
                 throw new ArgumentNullException("Registro no encontrado", nameof(entity));
@@ -71,7 +71,7 @@ namespace Business.Security.Implementations
             await this.data.Update(role);
         }
 
-        private Roles mapearDatos(Roles role, RolesDto entity)
+        private Role mapearDatos(Role role, RolesDto entity)
         {
             role.Id = entity.Id;
             role.name = entity.name;

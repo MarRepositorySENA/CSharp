@@ -10,7 +10,7 @@ namespace Entity.Model.Security
     {
         public int Id { get; set; }
         public string name { get; set; }
-        public string description { get; set; }
+        public string? description { get; set; }
         public string code { get; set; }
 
         public bool state { get; set; }
@@ -21,9 +21,22 @@ namespace Entity.Model.Security
         public DateTime updatedAt { get; set; }
         public DateTime updatedBy { get; set; }
 
-        public DateTime deletedAt { get; set; }
-        public DateTime deletedBy { get; set; }
+        public DateTime? deletedAt { get; set; } // Nullable DateTime
+        public DateTime? deletedBy { get; set; } // Nullable DateTime
 
-        
+
+        public Modules()
+        {
+            createdAt = DateTime.UtcNow;
+            createdBy = DateTime.UtcNow; // Puede ser cambiado según la lógica de tu aplicación
+            updatedAt = DateTime.UtcNow;
+            updatedBy = DateTime.UtcNow; // Puede ser cambiado según la lógica de tu aplicación
+            deletedAt = null;
+            deletedBy = null; // No establezcas valores predeterminados para deletedAt y deletedBy
+        }
+
+
+
+
     }
 }

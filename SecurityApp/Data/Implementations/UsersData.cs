@@ -1,5 +1,5 @@
 ﻿using Data.Interfaces;
-using Entity.Model.Context;
+using Entity.Context;
 using Entity.Model.Dto;
 using Entity.Model.Security;
 using Microsoft.EntityFrameworkCore;
@@ -31,7 +31,7 @@ namespace Data.Implementations
                 throw new Exception("Registro no encontrado");
             }
             entity.deletedAt = DateTime.Parse(DateTime.Today.ToString());
-            context.users.Update(entity);
+            context.Users.Update(entity);
             await context.SaveChangesAsync();
         }
 
@@ -41,58 +41,55 @@ namespace Data.Implementations
                         Id,
                         username AS TextoMostrar 
                     FROM 
-                        Security.Users
-                    WHERE deletedAt IS NULL AND Estado = 1
+                        Users
+                    WHERE deletedAt IS NULL AND state = 1
                     ORDER BY Id ASC";
             return await this.context.QueryAsync<DataSelectDto>(sql);
         }
 
-        public async Task<Users> GetById(int id)
+        public async Task<User> GetById(int id)
         {
-            var sql = @"SELECT * FROM Security.Users WHERE Id = @Id ORDER BY Id ASC";
-            return await this.context.QueryFirstOrDefaultAsync<Users>(sql, new { Id = id });
+            var sql = @"SELECT * FROM Users WHERE Id = @Id ORDER BY Id ASC";
+            return await this.context.QueryFirstOrDefaultAsync<User>(sql, new { Id = id });
         }
 
 
 
-        public async Task<Users> Save(Users entity)
+        public async Task<User> Save(User entity)
         {
-            context.users.Add(entity);
+            context.Users.Add(entity);
             await context.SaveChangesAsync();
             return entity;
         }
 
-        public async Task Update(Users entity)
+        public async Task Update(User entity)
         {
             context.Entry(entity).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
             await context.SaveChangesAsync();
         }
 
-        public async Task<Users> GetByCode(string code)
+        public async Task<User> GetByUsername(string username)
         {
-            return await this.context.users.AsNoTracking().Where(item => item.code == code).FirstOrDefaultAsync();
+            return await this.context.Users.AsNoTracking().Where(item => item.username == username).FirstOrDefaultAsync();
         }
 
-        public async Task<IEnumerable<UsersDto>> SelectAll()
+        public async Task<IEnumerable<User>> SelectAll()
         {
-            var sql = @"SELECT 
-                Id,
-                u.username,
-                u.password,
-                u.personId,
-                u.state,
-                u.code,
-                p.firstName
-            FROM 
-                Security.Users
-            INNER JOIN
-                Security.Persons p ON u.personId = p.Id
-            WHERE 
-                deletedAt IS NULL
-            ORDER BY 
-                u.Id ASC";
+            var sql = @"SELECT * FROM Users WHERE deletedAt IS NULL AND state = 1
+                    ORDER BY Id ASC; ";
 
-            return await this.context.QueryAsync<UsersDto>(sql);
+
+            try
+            {
+                return await this.context.QueryAsync<User>(sql);
+            }
+            catch (Exception ex)
+            {
+                // Manejar excepciones según sea necesario
+                throw new ApplicationException("Error al ejecutar la consulta XD", ex);
+            }
+
+            
         }
     }
 }

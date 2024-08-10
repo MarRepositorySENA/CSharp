@@ -29,7 +29,7 @@ namespace Business.Security.Implementations
             return await data.GetAllSelect();
         }
 
-        public async Task<IEnumerable<UsersDto>> SelectAll()
+        public async Task<IEnumerable<User>> SelectAll()
         {
             return await this.data.SelectAll();
         }
@@ -45,15 +45,15 @@ namespace Business.Security.Implementations
                 password = user.password,
                 personId = user.personId,
                 state = user.state,
-                code = user.code
+                
 
             };
 
         }
 
-        public async Task<Users> Save(UsersDto entity)
+        public async Task<User> Save(UsersDto entity)
         {
-            Users user = new Users();
+            User user = new User();
             user = mapearDatos(user, entity);
 
             return await data.Save(user);
@@ -61,7 +61,7 @@ namespace Business.Security.Implementations
 
         public async Task Update(int id, UsersDto entity)
         {
-            Users user = await data.GetById(id);
+            User user = await data.GetById(id);
             if (user == null)
             {
                 throw new Exception("Registro no encontrado");
@@ -71,14 +71,14 @@ namespace Business.Security.Implementations
             await data.Update(user);
         }
 
-        private Users mapearDatos(Users user, UsersDto entity)
+        private User mapearDatos(User user, UsersDto entity)
         {
             user.Id = entity.Id;
             user.username = entity.username;
             user.password = entity.password;
             user.personId = entity.personId;
             user.state = entity.state;
-            user.code = entity.code;
+            
 
 
 

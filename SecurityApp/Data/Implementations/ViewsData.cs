@@ -1,5 +1,5 @@
 ﻿using Data.Interfaces;
-using Entity.Model.Context;
+using Entity.Context;
 using Entity.Model.Dto;
 using Entity.Model.Security;
 using Microsoft.EntityFrameworkCore;
@@ -31,7 +31,7 @@ namespace Data.Implementations
                 throw new Exception("Registro no encontrado");
             }
             entity.deletedAt = DateTime.Parse(DateTime.Today.ToString());
-            context.views.Update(entity);
+            context.Views.Update(entity);
             await context.SaveChangesAsync();
         }
 
@@ -41,66 +41,51 @@ namespace Data.Implementations
                         Id,
                         CONCAT(code, ' - ', name) AS TextoMostrar 
                     FROM 
-                        Security.Views
-                    WHERE deletedAt IS NULL AND Estado = 1
+                        Views
+                    WHERE deletedAt IS NULL AND state = 1
                     ORDER BY Id ASC";
             return await this.context.QueryAsync<DataSelectDto>(sql);
         }
 
-        public async Task<Views> GetById(int id)
+        public async Task<View> GetById(int id)
         {
-            var sql = @"SELECT * FROM Security.Views WHERE Id = @Id ORDER BY Id ASC";
-            return await this.context.QueryFirstOrDefaultAsync<Views>(sql, new { Id = id });
+            var sql = @"SELECT * FROM Views WHERE Id = @Id ORDER BY Id ASC";
+            return await this.context.QueryFirstOrDefaultAsync<View>(sql, new { Id = id });
         }
 
 
 
-        public async Task<Views> Save(Views entity)
+        public async Task<View> Save(View entity)
         {
-            context.views.Add(entity);
+            context.Views.Add(entity);
             await context.SaveChangesAsync();
             return entity;
         }
 
-        public async Task Update(Views entity)
+        public async Task Update(View entity)
         {
             context.Entry(entity).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
             await context.SaveChangesAsync();
         }
 
-        public async Task<Views> GetByCode(string code)
+        public async Task<View> GetByCode(string code)
         {
-            return await this.context.views.AsNoTracking().Where(item => item.code == code).FirstOrDefaultAsync();
+            return await this.context.Views.AsNoTracking().Where(item => item.code == code).FirstOrDefaultAsync();
         }
 
-        public async Task<IEnumerable<ViewsDto>> SelectAll()
+        public async Task<IEnumerable<View>> SelectAll()
         {
-            var sql = @"SELECT 
-                                v.Id,
-                                v.name,
-                                v.description,
-                                v.route,
-                                v.moduleId,
-                                v.state,
-                                v.code,
-                                 
-                        FROM 
-                                Security.Views v
-                        INNER JOIN 
-                                Security.Modules m ON v.moduleId = m.Id
-                        WHERE 
-                                v.deletedAt IS NULL
-                        ORDER BY 
-                                 v.Id ASC";
+            var sql = @"SELECT * FROM Views WHERE deletedAt IS NULL AND state = 1
+                    ORDER BY Id ASC; ";
 
             try
             {
-                return await this.context.QueryAsync<ViewsDto>(sql);
+                return await this.context.QueryAsync<View>(sql);
             }
             catch (Exception ex)
             {
                 // Manejar excepciones según sea necesario
-                throw new ApplicationException("Error al ejecutar la consulta", ex);
+                throw new ApplicationException("Error al ejecutar la consulta XD", ex);
             }
         }
     }

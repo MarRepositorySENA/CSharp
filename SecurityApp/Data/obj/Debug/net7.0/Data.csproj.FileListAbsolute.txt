@@ -18,7 +18,9 @@ C:\Users\jimmy\OneDrive\Escritorio\CSharp\SecurityApp\Data\bin\Debug\net7.0\Data
 C:\Users\jimmy\OneDrive\Escritorio\CSharp\SecurityApp\Data\bin\Debug\net7.0\Data.dll
 C:\Users\jimmy\OneDrive\Escritorio\CSharp\SecurityApp\Data\bin\Debug\net7.0\Data.pdb
 C:\Users\jimmy\OneDrive\Escritorio\CSharp\SecurityApp\Data\bin\Debug\net7.0\Entity.dll
+C:\Users\jimmy\OneDrive\Escritorio\CSharp\SecurityApp\Data\bin\Debug\net7.0\Utilities.dll
 C:\Users\jimmy\OneDrive\Escritorio\CSharp\SecurityApp\Data\bin\Debug\net7.0\Entity.pdb
+C:\Users\jimmy\OneDrive\Escritorio\CSharp\SecurityApp\Data\bin\Debug\net7.0\Utilities.pdb
 C:\Users\jimmy\OneDrive\Escritorio\CSharp\SecurityApp\Data\obj\Debug\net7.0\Data.csproj.AssemblyReference.cache
 C:\Users\jimmy\OneDrive\Escritorio\CSharp\SecurityApp\Data\obj\Debug\net7.0\Data.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\jimmy\OneDrive\Escritorio\CSharp\SecurityApp\Data\obj\Debug\net7.0\Data.AssemblyInfoInputs.cache
