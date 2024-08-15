@@ -1,5 +1,6 @@
 ﻿using Data.Security.Interfaces;
 using Entity.Context;
+using Entity.Dto;
 using Entity.Model.Dto;
 using Entity.Model.Security;
 using Microsoft.EntityFrameworkCore;
@@ -89,7 +90,19 @@ namespace Data.Security.Implementations
                 throw new ApplicationException("Error al ejecutar la consulta XD", ex);
             }
 
+            
 
+
+        }
+
+        public async Task<LoginDto> Login(string UserName, string passsword)
+        {
+            var sql = @"SELECT u.Id, ur.roleId
+                 FROM Users AS u
+                 INNER JOIN UsersRoles AS ur ON ur.userId = u.Id
+                 WHERE u.username = @username
+                 AND u.passsword = @password;";
+            return await context.QueryFirstOrDefaultAsync<LoginDto>(sql, new { username = UserName, password = passsword });
         }
     }
 }

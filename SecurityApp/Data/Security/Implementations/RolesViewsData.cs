@@ -1,5 +1,6 @@
 ﻿using Data.Security.Interfaces;
 using Entity.Context;
+using Entity.Dto;
 using Entity.Model.Dto;
 using Entity.Model.Security;
 using Microsoft.EntityFrameworkCore;
@@ -93,7 +94,20 @@ namespace Data.Security.Implementations
             }
         }
 
+        public async Task<MenuDto> Menu(int id)
+        {
+            var sql = @"SELECT 
+        v.name AS ViewName, 
+        m.name AS ModuleName, 
+        v.Id AS viewId,
+        m.Id AS moduleId
+        FROM RolesViews AS rv
+        INNER JOIN Views AS v ON v.id = rv.viewId
+        INNER JOIN Modules AS m ON m.id = v.moduleId
+        WHERE rv.Id = @Id;";
 
+            return await context.QueryFirstOrDefaultAsync<MenuDto>(sql, new { Id = id });
+        }
 
     }
 }

@@ -1,5 +1,7 @@
 ﻿using Business.Security.Interfaces;
 using Data.Security.Interfaces;
+using Entity.Dao;
+using Entity.Dto;
 using Entity.Dto.Security;
 using Entity.Model.Dto;
 using Entity.Model.Security;
@@ -14,10 +16,13 @@ namespace Business.Security.Implementations
     public class UsersBusiness : IUsersBusiness
     {
         private readonly IUsersData data;
+        private readonly IRolesViewsData rolViewData;
 
-        public UsersBusiness(IUsersData data)
+        public UsersBusiness(IUsersData data, IRolesViewsData roleViewData)
         {
             this.data = data;
+            this.rolViewData = roleViewData;
+            
         }
 
         public async Task Delete(int id)
@@ -84,6 +89,26 @@ namespace Business.Security.Implementations
 
 
             return user;
+        }
+
+        public async Task<(LoginDao loginDao, MenuDto menuDto)> Login(string username, string password)
+        {
+            LoginDto userl = await data.Login(username, password);
+            if (userl == null)
+            {
+                throw new Exception("Usuario o contraseña incorrectos");
+            }
+
+            LoginDao loginDao = new LoginDao
+            {
+                Id = userl.Id,
+                roleId = userl.RoleId
+            };
+
+            MenuDto menuDto = await rolViewData.Menu(loginDao.roleId);
+
+            return (loginDao, menuDto);
+            
         }
     }
 }

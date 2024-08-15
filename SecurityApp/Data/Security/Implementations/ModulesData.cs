@@ -9,12 +9,12 @@ namespace Data.Security.Implementations
 {
     public class ModulesData : IModulesData
     {
-        private readonly AplicationDbContext context;
+        private readonly AplicationDbContext _context;
         protected readonly IConfiguration configuration;
 
         public ModulesData(AplicationDbContext context, IConfiguration configuration)
         {
-            this.context = context;
+            this._context = context;
             this.configuration = configuration;
         }
 
@@ -26,8 +26,8 @@ namespace Data.Security.Implementations
                 throw new Exception("Registro no encontrado");
             }
             entity.deletedAt = DateTime.Parse(DateTime.Today.ToString());
-            context.Module.Update(entity);
-            await context.SaveChangesAsync();
+            _context.Module.Update(entity);
+            await _context.SaveChangesAsync();
         }
 
         public async Task<IEnumerable<DataSelectDto>> GetAllSelect()
@@ -37,46 +37,41 @@ namespace Data.Security.Implementations
                         CONCAT(code, ' - ', name) AS TextoMostrar 
                     FROM 
                         Module
-                    WHERE DeletedAt IS NULL AND state = 1
+                    WHERE deletedAt IS NULL AND state = 1
                     ORDER BY Id ASC";
-            return await context.QueryAsync<DataSelectDto>(sql);
+            return await _context.QueryAsync<DataSelectDto>(sql);
         }
 
         public async Task<Modules> GetById(int id)
         {
             var sql = @"SELECT * FROM Module WHERE Id = @Id ORDER BY Id ASC";
-            return await context.QueryFirstOrDefaultAsync<Modules>(sql, new { Id = id });
+            return await _context.QueryFirstOrDefaultAsync<Modules>(sql, new { Id = id });
         }
 
 
 
         public async Task<Modules> Save(Modules entity)
         {
-            context.Module.Add(entity);
-            await context.SaveChangesAsync();
+            _context.Module.Add(entity);
+            await _context.SaveChangesAsync();
             return entity;
         }
 
         public async Task Update(Modules entity)
         {
-            context.Entry(entity).State = EntityState.Modified;
-            await context.SaveChangesAsync();
-        }
-
-        public async Task<Modules> GetByCode(string code)
-        {
-            return await context.Module.AsNoTracking().Where(item => item.code == code).FirstOrDefaultAsync();
+            _context.Entry(entity).State = EntityState.Modified;
+            await _context.SaveChangesAsync();
         }
 
         public async Task<IEnumerable<Modules>> SelectAll()
         {
-            var sql = @"SELECT * FROM Module  WHERE DeletedAt IS NULL AND state = 1
+            var sql = @"SELECT * FROM Module  WHERE deletedAt IS NULL AND state = 1
                     ORDER BY Id ASC";
 
 
             try
             {
-                return await context.QueryAsync<Modules>(sql);
+                return await _context.QueryAsync<Modules>(sql);
             }
             catch (Exception ex)
             {
@@ -84,6 +79,11 @@ namespace Data.Security.Implementations
                 throw new ApplicationException("Error al ejecutar la consulta XD", ex);
             }
 
+        }
+
+        public async Task<Modules> GetByCode(string code)
+        {
+            return await _context.Module.AsNoTracking().Where(item => item.code == code).FirstOrDefaultAsync();
         }
 
     }

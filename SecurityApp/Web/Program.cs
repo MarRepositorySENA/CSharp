@@ -1,5 +1,9 @@
+using Business.Parameter.Implementations;
+using Business.Parameter.Interfaces;
 using Business.Security.Implementations;
 using Business.Security.Interfaces;
+using Data.Parameter.Implementations;
+using Data.Parameter.Interfaces;
 using Data.Security.Implementations;
 using Data.Security.Interfaces;
 using Entity.Context;
@@ -51,6 +55,16 @@ namespace Web
 
             builder.Services.AddScoped<IViewsData, ViewsData>();
             builder.Services.AddScoped<IViewsBusiness, ViewsBusiness>();
+
+            builder.Services.AddScoped<ICityData,CityData>();
+            builder.Services.AddScoped<ICityBusiness, CityBusiness>();
+
+            builder.Services.AddScoped<ICountryData, CountryData>();
+            builder.Services.AddScoped<ICountryBusiness, CountryBusiness>();
+
+            builder.Services.AddScoped<IContinentData, ContinentData>();
+            builder.Services.AddScoped<IContinentBusiness, ContinentBusiness>();
+
 
 
 

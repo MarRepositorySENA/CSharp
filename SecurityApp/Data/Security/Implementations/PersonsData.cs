@@ -77,7 +77,7 @@ namespace Data.Security.Implementations
 
         public async Task<IEnumerable<Person>> SelectAll()
         {
-            var sql = @"SELECT * FROM Persons WHERE DeletedAt IS NULL AND state = 1
+            var sql = @"SELECT * FROM Persons WHERE deletedAt IS NULL AND state = 1
                        ORDER BY Id ASC; ";
             try
             {

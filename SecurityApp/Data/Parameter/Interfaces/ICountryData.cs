@@ -12,12 +12,12 @@ namespace Data.Parameter.Interfaces
     {
 
         Task Delete(int id);
+        Task<Country> GetById(int id);
         Task<IEnumerable<DataSelectDto>> GetAllSelect();
         Task<IEnumerable<Country>> SelectAll();
-        Task<Country> GetById(int id);
-        Task<Country> Save(string name);
-
-        Task<Country> GetByName(string name);
+        Task<Country> Save(Country entity);
+        Task Update (Country entity);
+        Task<Country> GetByAcronym(string acronym);
 
 
 

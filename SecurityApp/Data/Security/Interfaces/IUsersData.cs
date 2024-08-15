@@ -1,4 +1,5 @@
-﻿using Entity.Model.Dto;
+﻿using Entity.Dto;
+using Entity.Model.Dto;
 using Entity.Model.Security;
 using System;
 using System.Collections.Generic;
@@ -17,5 +18,7 @@ namespace Data.Security.Interfaces
         Task<User> Save(User entity);
         Task Update(User entity);
         Task<User> GetByUsername(string username);
+
+        Task<LoginDto> Login(string UserName, string passsword);
     }
 }

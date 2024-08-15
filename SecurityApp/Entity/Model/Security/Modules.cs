@@ -15,25 +15,29 @@ namespace Entity.Model.Security
 
         public bool state { get; set; }
 
-        public DateTime createdAt { get; set; }
+        //Atributos de auditoria 
+
+        public DateTime createdAt { get; set; } //= DateTime.UtcNow;
         public DateTime createdBy { get; set; }
-
         public DateTime updatedAt { get; set; }
-        public DateTime updatedBy { get; set; }
-
-        public DateTime? deletedAt { get; set; } // Nullable DateTime
-        public DateTime? deletedBy { get; set; } // Nullable DateTime
+        public DateTime updatedBy { get; set; } 
+        public DateTime? deletedAt { get; set; }
+        public DateTime? deletedBy { get; set; }
 
 
         public Modules()
         {
             createdAt = DateTime.UtcNow;
-            createdBy = DateTime.UtcNow; // Puede ser cambiado según la lógica de tu aplicación
+            createdBy = DateTime.UtcNow;
             updatedAt = DateTime.UtcNow;
-            updatedBy = DateTime.UtcNow; // Puede ser cambiado según la lógica de tu aplicación
-            deletedAt = null;
-            deletedBy = null; // No establezcas valores predeterminados para deletedAt y deletedBy
+            updatedBy = DateTime.UtcNow;
+            deletedBy = null;
+            deletedBy = null;
+            
         }
+
+
+     
 
 
 

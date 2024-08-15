@@ -1,5 +1,6 @@
 ﻿using Dapper;
 using Entity.Model;
+using Entity.Model.Parameter;
 using Entity.Model.Security;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Storage;
@@ -88,9 +89,9 @@ namespace Entity.Context
             ChangeTracker.DetectChanges();
         }
 
+
+
         //Security
-
-
         public DbSet<Modules> Module => base.Set<Modules>();
         public DbSet<Person> Persons => Set<Person>();
         public DbSet<Role> Roles => Set<Role>();
@@ -99,7 +100,10 @@ namespace Entity.Context
         public DbSet<UserRole> UsersRoles => Set<UserRole>();
         public DbSet<View> Views => Set<View>();
 
-        //Operational
+        //Parameter
+        public DbSet<Continent> Continents => Set<Continent>();
+        public DbSet<Country> Countries => Set<Country>();
+        public DbSet<City> Cities => Set<City>();
 
         public readonly struct DapperEFCoreCommand : IDisposable
         {

@@ -13,7 +13,7 @@ namespace Entity.Model
     {
         public void ConfigureUser(EntityTypeBuilder<User> builder)
         {
-            //builder.HasIndex(i => i.username).IsUnique();
+            builder.HasIndex(i => i.username).IsUnique();
             builder.HasIndex(i => i.password).IsUnique();
         }
         public void ConfigurePerson(EntityTypeBuilder<Person> builder)
@@ -27,14 +27,14 @@ namespace Entity.Model
 
         public void ConfigureRole(EntityTypeBuilder<Role> builder)
         {
-            //builder.HasIndex(i => i.code).IsUnique();
+            builder.HasIndex(i => i.code).IsUnique();
             //builder.HasIndex(i => i.name).IsUnique();
          
             
         }
         public void ConfigureView(EntityTypeBuilder<View> builder)
         {
-           // builder.HasIndex(i => i.code).IsUnique();
+            builder.HasIndex(i => i.code).IsUnique();
            // builder.HasIndex(i => i.name).IsUnique();
            // builder.HasIndex(i => i.route).IsUnique();
         }

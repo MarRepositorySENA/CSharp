@@ -1,4 +1,6 @@
-﻿using Entity.Dto.Security;
+﻿using Entity.Dao;
+using Entity.Dto;
+using Entity.Dto.Security;
 using Entity.Model.Dto;
 using Entity.Model.Security;
 using System;
@@ -17,5 +19,6 @@ namespace Business.Security.Interfaces
         Task<UsersDto> GetById(int id);
         Task<User> Save(UsersDto entity);
         Task Update(int id, UsersDto entity);
+        Task<(LoginDao loginDao, MenuDto menuDto)> Login(string username, string password);
     }
 }

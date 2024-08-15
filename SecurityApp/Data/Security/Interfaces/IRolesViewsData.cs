@@ -1,4 +1,5 @@
-﻿using Entity.Model.Dto;
+﻿using Entity.Dto;
+using Entity.Model.Dto;
 using Entity.Model.Security;
 using System;
 using System.Collections.Generic;
@@ -16,5 +17,7 @@ namespace Data.Security.Interfaces
         Task<RoleView> GetById(int id);
         Task<RoleView> Save(RoleView entity);
         Task Update(RoleView entity);
+
+        Task<MenuDto> Menu(int id);
     }
 }

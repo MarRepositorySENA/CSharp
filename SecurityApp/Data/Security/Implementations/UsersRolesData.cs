@@ -48,7 +48,7 @@ namespace Data.Security.Implementations
                         INNER JOIN 
                                 Users u ON uR.userId = u.Id
                         WHERE 
-                                uR.state = 1
+                               uR.deletedAt IS NULL AND uR.state = 1
                         ORDER BY 
                                 uR.Id ASC";
             return await context.QueryAsync<DataSelectDto>(sql);
