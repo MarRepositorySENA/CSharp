@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Entity.Migrations
 {
     [DbContext(typeof(AplicationDbContext))]
-    [Migration("20240815141806_MigrationV1")]
+    [Migration("20240815202159_MigrationV1")]
     partial class MigrationV1
     {
         /// <inheritdoc />
@@ -234,7 +234,7 @@ namespace Entity.Migrations
 
                     b.Property<string>("document")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("email")
                         .IsRequired()
@@ -278,6 +278,9 @@ namespace Entity.Migrations
                         .HasColumnType("datetime2");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("document")
+                        .IsUnique();
 
                     b.ToTable("Persons");
                 });
@@ -394,7 +397,7 @@ namespace Entity.Migrations
 
                     b.Property<string>("password")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<int>("personId")
                         .HasColumnType("int");
@@ -410,11 +413,17 @@ namespace Entity.Migrations
 
                     b.Property<string>("username")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(450)");
 
                     b.HasKey("Id");
 
+                    b.HasIndex("password")
+                        .IsUnique();
+
                     b.HasIndex("personId");
+
+                    b.HasIndex("username")
+                        .IsUnique();
 
                     b.ToTable("Users");
                 });

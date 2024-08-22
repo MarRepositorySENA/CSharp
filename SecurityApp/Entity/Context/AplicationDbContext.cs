@@ -7,16 +7,17 @@ using Microsoft.EntityFrameworkCore.Storage;
 using Microsoft.Extensions.Configuration;
 using System.Data;
 
+
 namespace Entity.Context
 {
     public class AplicationDbContext : DbContext
     {
-        //protected readonly IConfiguration _configuration;
+        protected readonly IConfiguration _configuration;
         private readonly GenericConfig _genericConfig;
 
         public AplicationDbContext(DbContextOptions<AplicationDbContext> options, IConfiguration configuration) : base(options)
         {
-            //_configuration = configuration;
+            _configuration = configuration;
             _genericConfig = new GenericConfig(); // Inicializar GenericConfig
         }
 
@@ -26,14 +27,14 @@ namespace Entity.Context
             // Llama al método base para aplicar las configuraciones por defecto
             base.OnModelCreating(modelBuilder);
 
-            // Aplica configuraciones desde GenericConfig
-           /* var genericConfig = new GenericConfig();
+            // Aplica configuraciones desde GenericConfig   
+            var genericConfig = new GenericConfig();
             genericConfig.ConfigureUser(modelBuilder.Entity<User>());
             genericConfig.ConfigurePerson(modelBuilder.Entity<Person>());
             genericConfig.ConfigureRole(modelBuilder.Entity<Role>());
             genericConfig.ConfigureView(modelBuilder.Entity<View>());
             genericConfig.ConfigureModules(modelBuilder.Entity<Modules>());
-           */
+          
 
         }
 
@@ -104,6 +105,14 @@ namespace Entity.Context
         public DbSet<Continent> Continents => Set<Continent>();
         public DbSet<Country> Countries => Set<Country>();
         public DbSet<City> Cities => Set<City>();
+
+        //----------------------------------------
+        public DbSet<Department> Departments => Set<Department>();
+        public DbSet<Environments> Environment => Set<Environments>();
+        public DbSet<Floor> Floors => Set<Floor>();
+        public DbSet<Region> Regions => Set<Region>();
+        public DbSet<TrainingCenter> TrainingsCenters => Set<TrainingCenter>();
+
 
         public readonly struct DapperEFCoreCommand : IDisposable
         {

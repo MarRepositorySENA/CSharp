@@ -15,8 +15,6 @@ namespace Entity.Dto.Security
 
         public string password { get; set; }
         public int personId { get; set; }
-
-        public string Nombres { get; set; }
         public bool state { get; set; }
 
 

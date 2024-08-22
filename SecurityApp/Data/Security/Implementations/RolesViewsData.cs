@@ -48,7 +48,7 @@ namespace Data.Security.Implementations
                         INNER JOIN 
                                 Views v ON rV.viewId = v.Id
                         WHERE 
-                                rV.state = 1
+                              rV.deletedAt IS NULL AND  rV.state = 1
                         ORDER BY 
                                 rV.Id ASC; ";
             return await context.QueryAsync<DataSelectDto>(sql);

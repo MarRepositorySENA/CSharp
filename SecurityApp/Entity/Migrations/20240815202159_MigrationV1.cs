@@ -111,7 +111,7 @@ namespace Entity.Migrations
                     secondSurname = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     email = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     gender = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    document = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    document = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     typeDocument = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     address = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     phone = table.Column<string>(type: "nvarchar(max)", nullable: false),
@@ -186,8 +186,8 @@ namespace Entity.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    username = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    password = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    username = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    password = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     personId = table.Column<int>(type: "int", nullable: false),
                     state = table.Column<bool>(type: "bit", nullable: false),
                     createdAt = table.Column<DateTime>(type: "datetime2", nullable: false),
@@ -275,6 +275,12 @@ namespace Entity.Migrations
                 });
 
             migrationBuilder.CreateIndex(
+                name: "IX_Persons_document",
+                table: "Persons",
+                column: "document",
+                unique: true);
+
+            migrationBuilder.CreateIndex(
                 name: "IX_RolesViews_roleId",
                 table: "RolesViews",
                 column: "roleId");
@@ -285,9 +291,21 @@ namespace Entity.Migrations
                 column: "viewId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Users_password",
+                table: "Users",
+                column: "password",
+                unique: true);
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Users_personId",
                 table: "Users",
                 column: "personId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Users_username",
+                table: "Users",
+                column: "username",
+                unique: true);
 
             migrationBuilder.CreateIndex(
                 name: "IX_UsersRoles_roleId",

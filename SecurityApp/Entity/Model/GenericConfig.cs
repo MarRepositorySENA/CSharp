@@ -27,14 +27,14 @@ namespace Entity.Model
 
         public void ConfigureRole(EntityTypeBuilder<Role> builder)
         {
-            builder.HasIndex(i => i.code).IsUnique();
+           // builder.HasIndex(i => i.code).IsUnique();
             //builder.HasIndex(i => i.name).IsUnique();
          
             
         }
         public void ConfigureView(EntityTypeBuilder<View> builder)
         {
-            builder.HasIndex(i => i.code).IsUnique();
+            //builder.HasIndex(i => i.code).IsUnique();
            // builder.HasIndex(i => i.name).IsUnique();
            // builder.HasIndex(i => i.route).IsUnique();
         }

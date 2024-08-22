@@ -23,7 +23,7 @@ namespace Data.Security.Implementations
             this.context = context;
             this.configuration = configuration;
         }
-
+            
         public async Task Delete(int id)
         {
             var entity = await GetById(id);
